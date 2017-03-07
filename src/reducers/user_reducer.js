@@ -1,6 +1,6 @@
 const initialState = {
     loggedIn: false,
-    shouldRedirect: false,
+    redirectToHome: false,
     user: {}
 }
 export default (state = initialState, action) => {
@@ -9,14 +9,21 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggedIn: true,
-                shouldRedirect: false,
                 user: action.payload
             }
         case "LOGIN_FAILED":
             return {
                 ...state,
                 loggedIn: false,
-                shouldRedirect: true,
+                user: {},
+            }
+        case "LOGOUT":
+            localStorage.removeItem("token");
+            return {
+                ...state,
+                redirectToHome: true,
+                loggedIn: false,
+                user: {},
             }
     }
     return state

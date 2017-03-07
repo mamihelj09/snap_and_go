@@ -2,13 +2,19 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
 
-const router = require("./back/routes")
+const authRoutes = require("./back/authRoutes")
+const uploadRoutes = require("./back/addProductRoutes")
 const app = express()
 const port = process.env.PORT || 9000
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(express.static("./build"))
+app.use(express.static(path.join(__dirname)));
 
-app.use("/authentication", router)
+
+app.use("/authentication", authRoutes)
+app.use("/upload", uploadRoutes)
 app.use("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./build", "index.html"))
 })

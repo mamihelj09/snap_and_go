@@ -1,10 +1,8 @@
 const MONGO_URL = require("./PRIVATE_DATA")
 const mongoose = require('mongoose');
-const uuid = require("node-uuid");
 
-const schema = {
+const userSchema = {
     email: String,
-    user: String,
     pass: String,
     key: String,
     id: String,
@@ -12,7 +10,17 @@ const schema = {
     place: String
 };
 
-Users = mongoose.model('Users', schema);
+const productSchema = {
+    userID: String,
+    productID: String,
+    name: String,
+    description: String,
+    startPrice: String,
+    bids: [],
+}
+
+Users = mongoose.model('Users', userSchema);
+Products = mongoose.model("Products", productSchema)
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://marko:roleks@ds141128.mlab.com:41128/snapandgo", function (err) {
@@ -33,4 +41,4 @@ findUser = (user, pass, usr) => {
 
 
 
-module.exports = { findUser, Users };
+module.exports = { findUser, Users, Products };

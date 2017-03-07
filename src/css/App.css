@@ -5,4 +5,10 @@ body {
 .logo{
   font-family: 'Lobster', cursive;
 }
-
+img{
+  width: 120px;
+  height: 80px;
+  margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
