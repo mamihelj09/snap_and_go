@@ -3,7 +3,7 @@ const bodyParser = require("body-parser")
 const path = require("path")
 
 const authRoutes = require("./back/authRoutes")
-const uploadRoutes = require("./back/addProductRoutes")
+const uploadRoutes = require("./back/productRoutes")
 const app = express()
 const port = process.env.PORT || 9000
 

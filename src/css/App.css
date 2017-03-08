@@ -6,9 +6,18 @@ body {
   font-family: 'Lobster', cursive;
 }
 img{
-  width: 120px;
+  width: auto;
   height: 80px;
   margin: 10px;
   border-radius: 5px;
   overflow: hidden;
+}
+.border{
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin: 5px;
+}
+.border:hover{
+  border: 1px solid #ccc;  
+  cursor: pointer;
 }

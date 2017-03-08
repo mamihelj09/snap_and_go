@@ -24,7 +24,7 @@ class LogIn extends Component {
     render() {
         return (
             <div>
-                {this.props.user.loggedIn ? <Redirect to={"/profile/" + this.props.user.user.id} /> : <div>
+                {this.props.user.loggedIn ? <Redirect to={"/profile/" + localStorage.getItem("id")} /> : <div>
                     <input type="text" placeholder="Email" onChange={this.handleMailChange.bind(this)} /><br />
                     <input type="text" placeholder="Password" onChange={this.handlePassChange.bind(this)} /><br />
                     <button onClick={() => this.props.login(this.state.mail, this.state.pass)}>Login</button>

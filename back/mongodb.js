@@ -16,6 +16,7 @@ const productSchema = {
     name: String,
     description: String,
     startPrice: String,
+    imgsPath: [],
     bids: [],
 }
 

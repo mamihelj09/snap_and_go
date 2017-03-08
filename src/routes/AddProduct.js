@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import Dropzone from "react-dropzone"
 import $ from "jquery"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import { fetchUserInfoToken } from "../actions/login_action"
 
 class AddProduct extends Component {
 
@@ -14,6 +17,13 @@ class AddProduct extends Component {
             data: [],
         }
     }
+
+    componentDidMount() {
+        if (localStorage.getItem("token") && !this.props.user.loggedIn) {
+            this.props.fetchUserInfoToken(localStorage.getItem("token"))
+        }
+    }
+
     async drop(file) {
         if (file.length > 0) {
             for (var i in file) {
@@ -42,6 +52,44 @@ class AddProduct extends Component {
         }
     }
 
+    async add() {
+        const formData = new FormData()
+        if (this.state.data.length > 1) {
+            for (var i in this.state.data) {
+                const b = await this.state.data[i].a.blob()
+                formData.append("data", b, this.state.data[i].name)
+            }
+        }
+        console.log(formData);
+        await $.ajax({
+            url: "/upload/saveImgs",
+            method: "POST",
+            processData: false,
+            contentType: false,
+            data: formData,
+            success: (data) => {
+                var path = [];
+                for (var i in data) {
+                    path.push(data[i].path)
+                }
+                console.log(this.props.user);
+                fetch("/upload/addProduct", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        userID: this.props.user.user.id,
+                        productID: this.state.name + Date.now(),
+                        name: this.state.name,
+                        description: this.state.description,
+                        startPrice: this.state.startPrice,
+                        imgsPath: path,
+                        bids: [],
+                    })
+                })
+            }
+        })
+    }
+
     handleNameChange(e) {
         this.setState({ name: e.target.value });
     }
@@ -51,27 +99,9 @@ class AddProduct extends Component {
     }
 
     handlePriceChange(e) {
-        this.setState({ price: e.target.value });
+        this.setState({ startPrice: e.target.value });
     }
 
-    async add() {
-        const formData = new FormData()
-        if (this.state.data.length > 1) {
-            for (var i in this.state.data) {
-                const b = await this.state.data[i].a.blob()
-                formData.append("data", b, this.state.data[i].name)
-            }
-        }
-
-        console.log(this.state.data);
-        await $.ajax({
-            url: "/upload/save",
-            method: "POST",
-            processData: false,
-            contentType: false,
-            data: formData,
-        })
-    }
 
     render() {
         return (
@@ -102,4 +132,17 @@ class AddProduct extends Component {
     }
 }
 
-export default AddProduct
+
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+        fetchUserInfoToken: fetchUserInfoToken,
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(AddProduct)

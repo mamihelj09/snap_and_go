@@ -34,7 +34,7 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                {this.props.user.loggedIn ? <Redirect to={"/profile/" + this.props.user.user.id} /> : <div>
+                {this.props.user.loggedIn ? <Redirect to={"/profile/" + localStorage.getItem("id")} /> : <div>
                     Signup! <hr />
                     <input onChange={this.handleMailChange.bind(this)} type="text" placeholder="email" /><br />
                     <input onChange={this.handlePassChange.bind(this)} type="text" placeholder="pass" /><br />

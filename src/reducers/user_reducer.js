@@ -19,6 +19,7 @@ export default (state = initialState, action) => {
             }
         case "LOGOUT":
             localStorage.removeItem("token");
+            localStorage.removeItem("id");
             return {
                 ...state,
                 redirectToHome: true,

@@ -8,6 +8,7 @@ export const login = (mail, pass) => {
             if (res.status === 200) {
                 res.json().then(data => {
                     localStorage.setItem("token", data.key);
+                    localStorage.setItem("id", data.id)
                     dispatch({ type: "LOGGED_IN", payload: data })
                 })
             } else {
@@ -45,6 +46,7 @@ export const fetchUserEmailSignup = (newUser) => {
             if (res.status === 200) {
                 res.json().then(data => {
                     localStorage.setItem("token", data.key);
+                    localStorage.setItem("id", data.id)
                     dispatch({ type: "LOGGED_IN", payload: data })
                 })
             } else {
