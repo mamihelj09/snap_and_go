@@ -26,6 +26,8 @@ export default (state = initialState, action) => {
                 loggedIn: false,
                 user: {},
             }
+        default:
+            return state
     }
-    return state
+    // return state
 }

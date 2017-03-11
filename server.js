@@ -1,11 +1,15 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
+const something = require("./back/mongodb.js")
+const app = express()
+const server = require('http').createServer(app)
+const io = require("socket.io")(server);
+
+const port = process.env.PORT || 9000
 
 const authRoutes = require("./back/authRoutes")
 const uploadRoutes = require("./back/productRoutes")
-const app = express()
-const port = process.env.PORT || 9000
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -19,6 +23,28 @@ app.use("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./build", "index.html"))
 })
 
-app.listen(port, () => {
+io.on("connect", (socket) => {
+    console.log("Client connected")
+
+    socket.on("makeNewBid", (data) => {
+        something.Products.findOne({ productID: data.productID }, (err, product) => {
+            if (err) console.log("nista", err)
+            else {
+                if (data.bid > product.maxBid) {
+                    product.update({ maxBid: data.bid, maxBidUser: data.userID }, (err) => {
+                        if (err) console.log("nista", err)
+                        else {
+                            console.log("emit all");
+                            socket.broadcast.emit("getBids", { bid: data.bid, userID: data.userID, productID: data.productID })
+                        }
+                    })
+                }
+            }
+        })
+    })
+
+})
+
+server.listen(port, () => {
     console.log("Server is on port ", port);
 })

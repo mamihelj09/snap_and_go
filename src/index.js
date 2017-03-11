@@ -9,6 +9,7 @@ import LogIn from "./routes/LogIn"
 import SignUp from "./routes/SignUp"
 import Profile from "./routes/Profile"
 import AddProduct from "./routes/AddProduct"
+import ProductPreview from "./routes/ProductPreview"
 
 import "./css/App.css"
 
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/singup" component={SignUp} />
         <Route path="/profile/:id/" component={Profile} />
         <Route path="/addproduct" component={AddProduct} />
+        <Route path="/product/:id" component={ProductPreview} />
       </div>
     </Router>
   </Provider>

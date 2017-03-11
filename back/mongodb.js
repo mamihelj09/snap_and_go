@@ -16,8 +16,9 @@ const productSchema = {
     name: String,
     description: String,
     startPrice: String,
+    maxBid: String,
+    maxBidUser: String,
     imgsPath: [],
-    bids: [],
 }
 
 Users = mongoose.model('Users', userSchema);

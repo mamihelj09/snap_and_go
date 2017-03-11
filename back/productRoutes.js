@@ -17,10 +17,21 @@ const storage = multer.diskStorage({
 
 var upload = multer({ storage: storage })
 
+routes.post("/fetchOneProduct", (req, res) => {
+    console.log("req => /fetchOne");
+    something.Products.findOne({ productID: req.body.id }, (err, product) => {
+        if (err) res.send(403)
+        else res.send(200, product)
+    })
+})
+
 routes.post("/fetchAllProducts", (req, res) => {
     console.log("req => /fetchAllProducts");
     something.Products.find({}, (err, products) => {
-        if (err) res.send(403)
+        if (err) {
+            res.send(403)
+            console.log("asda");
+        }
         else res.send(200, products)
     })
 })
@@ -46,8 +57,9 @@ routes.post("/addProduct", (req, res) => {
         name: req.body.name,
         description: req.body.description,
         startPrice: req.body.startPrice,
+        maxBid: req.body.startPrice,
+        maxBidUser: "",
         imgsPath: req.body.imgsPath,
-        bids: [],
     })
     tempProduct.save((err) => {
         if (err) res.send(403)
