@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import ProductPreview from "../components/containers/Home/ProductPreview"
+import ProductPreview from "../components/containers/ProductPreview"
 
 class Home extends Component {
 

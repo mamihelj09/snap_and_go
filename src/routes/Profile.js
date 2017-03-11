@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import AddProduct from "../components/containers/Profile/AddProduct"
-import ProductPreview from "../components/containers/Profile/ProductPreview"
+import AddProduct from "../components/containers/AddProduct"
+import ProductPreview from "../components/containers/ProductPreview"
 
 class Profile extends Component {
 
@@ -9,6 +9,7 @@ class Profile extends Component {
             <div>
                 <AddProduct />
                 <hr />
+                <h1>My products:</h1>
                 <ProductPreview />
             </div>
         )

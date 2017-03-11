@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { unmountRedirectToProduct, redirectToProduct, fetchAllProducts } from "../../../actions/products_actions"
+import { unmountRedirectToProduct, redirectToProduct, fetchAllProducts } from "../../actions/products_actions"
 
 class ProductPreview extends Component {
 
@@ -22,7 +22,7 @@ class ProductPreview extends Component {
                             <div>
                                 {this.props.products.allProducts.map((item, i) => (
                                     <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-sm-4 border">
-                                        <img role="presentation" src={item.imgsPath[0]} />
+                                        <img role="presentation" src={"../" + item.imgsPath[0]} />
                                         <h1>{item.name}</h1>
                                         <h4>{item.description}</h4>
                                         <h4>Current price: ${item.maxBid}</h4>

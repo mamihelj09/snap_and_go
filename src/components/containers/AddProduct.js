@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Redirect, Link } from "react-router-dom"
-import { fetchUserInfoToken, logout } from "../../../actions/login_action"
+import { fetchUserInfoToken, logout } from "../../actions/login_action"
 
 class AddProduct extends Component {
 
