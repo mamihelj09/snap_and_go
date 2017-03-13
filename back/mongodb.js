@@ -26,7 +26,7 @@ Users = mongoose.model('Users', userSchema);
 Products = mongoose.model("Products", productSchema)
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://marko:roleks@ds141128.mlab.com:41128/snapandgo", function (err) {
+mongoose.connect(MONGO_URL, function (err) {
     if (err) console.log(err);
     else console.log("Mongodb connected successfully!\n");
 });
