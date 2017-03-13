@@ -2,13 +2,13 @@ import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { unmountRedirectToProduct, redirectToProduct, fetchAllProducts } from "../../actions/products_actions"
+import { unmountRedirectToProduct, redirectToProduct, fetchMyProducts } from "../../actions/products_actions"
 
-class ProductPreview extends Component {
+class ProfileProductList extends Component {
 
     componentDidMount() {
-        if (this.props.products.allProducts.length < 1) {
-            this.props.fetchAllProducts();
+        if (this.props.products.myProducts.length < 1 && localStorage.getItem("id")) {
+            this.props.fetchMyProducts(localStorage.getItem("id"));
         }
     }
 
@@ -18,9 +18,9 @@ class ProductPreview extends Component {
             <div>
                 {this.props.products.redirectToProduct ? <Redirect to={"/product/" + this.props.products.idToRedirect} /> :
                     <div>
-                        {this.props.products.allProducts.length > 0 ?
+                        {this.props.products.myProducts.length > 0 ?
                             <div>
-                                {this.props.products.allProducts.map((item, i) => (
+                                {this.props.products.myProducts.map((item, i) => (
                                     <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-sm-4 border">
                                         <img role="presentation" src={"../" + item.imgsPath[0]} />
                                         <h1>{item.name}</h1>
@@ -45,10 +45,10 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        fetchAllProducts: fetchAllProducts,
         unmountRedirectToProduct,
         redirectToProduct,
+        fetchMyProducts,
     }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(ProductPreview)
+export default connect(mapStateToProps, matchDispatchToProps)(ProfileProductList)

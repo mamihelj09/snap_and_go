@@ -37,6 +37,7 @@ routes.post("/fetchAllProducts", (req, res) => {
 })
 
 routes.post("/fetchMyProducts", (req, res) => {
+    console.log("req => /fetchMyProducts");
     something.Products.find({ userID: req.body.id }, (err, products) => {
         if (err) res.send(403)
         else res.send(200, products)
@@ -59,6 +60,7 @@ routes.post("/addProduct", (req, res) => {
         startPrice: req.body.startPrice,
         maxBid: req.body.startPrice,
         maxBidUser: "",
+        timeCreated: new Date(),
         imgsPath: req.body.imgsPath,
     })
     tempProduct.save((err) => {

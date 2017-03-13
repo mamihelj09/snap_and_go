@@ -35,7 +35,7 @@ io.on("connect", (socket) => {
                         if (err) console.log("nista", err)
                         else {
                             console.log("emit all");
-                            socket.broadcast.emit("getBids", { bid: data.bid, userID: data.userID, productID: data.productID })
+                            socket.broadcast.emit("getBids", { bid: data.bid, userID: data.userID, productID: data.productID, timeCreated: product.timeCreated })
                         }
                     })
                 }

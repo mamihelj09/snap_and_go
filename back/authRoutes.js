@@ -7,9 +7,9 @@ const uuid = require("node-uuid");
 const routes = express.Router()
 
 routes.post("/", (req, res) => {
+    console.log("Req => /");
     something.Users.findOne({ email: req.body.mail, pass: req.body.pass }, (err, obj) => {
         if (obj) {
-            console.log("Req => /");
             res.json(200, obj)
         } else {
             res.send(403)
@@ -19,9 +19,9 @@ routes.post("/", (req, res) => {
 })
 
 routes.post("/token", (req, res) => {
+    console.log("Req => /token");
     something.Users.findOne({ key: req.body.token }, (err, obj) => {
         if (obj) {
-            console.log("Req => /token");
             res.json(200, obj)
         } else {
             res.send(403)

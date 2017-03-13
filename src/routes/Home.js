@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import ProductPreview from "../components/containers/ProductPreview"
+import HomeProductList from "../components/containers/HomeProductList"
 
 class Home extends Component {
 
@@ -15,7 +15,7 @@ class Home extends Component {
                     <Link to="/login" >Profile</Link>
                 }
                 <hr />
-                <ProductPreview />
+                <HomeProductList />
             </div>
         )
     }

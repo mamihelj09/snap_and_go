@@ -18,6 +18,7 @@ const productSchema = {
     startPrice: String,
     maxBid: String,
     maxBidUser: String,
+    timeCreated: Date,
     imgsPath: [],
 }
 

@@ -58,7 +58,6 @@ export const fetchOneProductToDisplay = (id) => {
                     dispatch({ type: "ONE_PRODUCT_RECIVED", payload: data })
                 })
             } else {
-                console.log("ccc");
                 dispatch({ type: "REDIRECT_TO_ERROR" })
             }
         })
@@ -74,7 +73,12 @@ export const addBid = (bid, productID, userID) => {
 
 }
 
-export const recivedNewBits = (bid, userID) => {
+export const recivedNewBits = (bid, userID, timeCreated) => {
+    var time = new Date()
+    // console.log(time.getTime())
+    // console.log(timeCreated.getTime())
+    var x = time - timeCreated
+    console.log(x)
     return {
         type: "ADD_BID",
         payload: { bid, userID }
