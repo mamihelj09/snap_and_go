@@ -1,4 +1,4 @@
-const MONGO_URL = require("./PRIVATE_DATA")
+const data = require("./PRIVATE_DATA")
 const mongoose = require('mongoose');
 
 const userSchema = {
@@ -26,7 +26,7 @@ Users = mongoose.model('Users', userSchema);
 Products = mongoose.model("Products", productSchema)
 
 mongoose.Promise = global.Promise;
-mongoose.connect(MONGO_URL, function (err) {
+mongoose.connect(data.MONGO_URL, function (err) {
     if (err) console.log(err);
     else console.log("Mongodb connected successfully!\n");
 });
