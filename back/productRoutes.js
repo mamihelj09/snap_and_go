@@ -3,6 +3,7 @@ const path = require('path')
 const something = require("./mongodb.js")
 const bodyParser = require("body-parser")
 const multer = require("multer")
+const fs = require("fs")
 
 const routes = express.Router()
 
@@ -63,7 +64,20 @@ routes.post("/addProduct", (req, res) => {
         timeCreated: new Date(),
         imgsPath: req.body.imgsPath,
     })
-    tempProduct.save((err) => {
+    tempProduct.save((err, obj) => {
+        var imgsPath = obj.imgsPath
+        console.log(imgsPath[0])
+        setTimeout(() => {
+            obj.remove((err) => {
+                fs.exists(imgsPath[0], (exists) => {
+                    if (exists && !err) {
+                        fs.unlink(imgsPath[0])
+                        console.log("Izbrisano...")
+                    }
+                    else console.log(err)
+                })
+            })
+        }, 1000 * 60) //1000 => sec
         if (err) res.send(403)
         res.send(200)
     })

@@ -74,11 +74,9 @@ export const addBid = (bid, productID, userID) => {
 }
 
 export const recivedNewBits = (bid, userID, timeCreated) => {
-    var time = new Date()
-    // console.log(time.getTime())
-    // console.log(timeCreated.getTime())
-    var x = time - timeCreated
-    console.log(x)
+    var time = new Date(timeCreated)
+    time.setMinutes(time.getMinutes() + 10)
+    console.log(time)
     return {
         type: "ADD_BID",
         payload: { bid, userID }
