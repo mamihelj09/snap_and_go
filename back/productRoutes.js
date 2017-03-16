@@ -21,27 +21,24 @@ var upload = multer({ storage: storage })
 routes.post("/fetchOneProduct", (req, res) => {
     console.log("req => /fetchOne");
     something.Products.findOne({ productID: req.body.id }, (err, product) => {
-        if (err) res.send(403)
-        else res.send(200, product)
+        if (product) res.send(200, product)
+        else res.send(403)
     })
 })
 
 routes.post("/fetchAllProducts", (req, res) => {
     console.log("req => /fetchAllProducts");
     something.Products.find({}, (err, products) => {
-        if (err) {
-            res.send(403)
-            console.log("asda");
-        }
-        else res.send(200, products)
+        if (products) res.send(200, products)
+        else res.send(403)
     })
 })
 
 routes.post("/fetchMyProducts", (req, res) => {
     console.log("req => /fetchMyProducts");
-    something.Products.find({ userID: req.body.id }, (err, products) => {
-        if (err) res.send(403)
-        else res.send(200, products)
+    something.Products.find({ sellerID: req.body.id }, (err, products) => {
+        if (products) res.send(200, products)
+        else res.send(403)
     })
 })
 
@@ -54,7 +51,7 @@ routes.post('/saveImgs', multer({ dest: "uploads/", storage }).array('data'), fu
 routes.post("/addProduct", (req, res) => {
     console.log("req => /addProduct");
     var tempProduct = new something.Products({
-        userID: req.body.userID,
+        sellerID: req.body.sellerID,
         productID: req.body.productID,
         name: req.body.name,
         description: req.body.description,
@@ -66,16 +63,41 @@ routes.post("/addProduct", (req, res) => {
     })
     tempProduct.save((err, obj) => {
         var imgsPath = obj.imgsPath
-        console.log(imgsPath[0])
         setTimeout(() => {
-            obj.remove((err) => {
-                fs.exists(imgsPath[0], (exists) => {
-                    if (exists && !err) {
-                        fs.unlink(imgsPath[0])
-                        console.log("Izbrisano...")
-                    }
-                    else console.log(err)
-                })
+            something.Users.findOne({ id: obj.sellerID }, (err, seller) => {
+                if (seller && !err) {
+                    something.Products.findOne({ productID: obj.productID }, (err, product) => {
+                        if (product && !err) {
+                            something.Users.findOne({ id: product.maxBidUser }, (err, user) => {
+                                if (user && !err) {
+                                    console.log("user", user)
+                                    user.update({
+                                        messages: [{
+                                            sellerID: product.sellerID,
+                                            sellerMail: seller.email,
+                                            productID: product.productID,
+                                            productName: product.name,
+                                            price: product.maxBid,
+                                        }]
+                                    }, (err) => {
+                                        if (!err) console.log("proslo")
+                                        else console.log("nije prolso", err)
+                                    })
+                                } else console.log(err)
+                            })
+                            obj.remove((err) => {
+                                fs.exists(imgsPath[0], (exists) => {
+                                    if (exists && !err) {
+                                        for (var i = 0; i < imgsPath.length; i++) {
+                                            fs.unlink(imgsPath[i])
+                                        }
+                                        console.log("Izbrisano...")
+                                    } else console.log(err)
+                                })
+                            })
+                        } else console.log(err)
+                    })
+                } else console.log(err)
             })
         }, 1000 * 60) //1000 => sec
         if (err) res.send(403)

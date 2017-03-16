@@ -7,11 +7,12 @@ const userSchema = {
     key: String,
     id: String,
     fullName: String,
-    place: String
+    place: String,
+    messages: [],
 };
 
 const productSchema = {
-    userID: String,
+    sellerID: String,
     productID: String,
     name: String,
     description: String,
@@ -31,17 +32,4 @@ mongoose.connect(data.MONGO_URL, function (err) {
     else console.log("Mongodb connected successfully!\n");
 });
 
-findUser = (user, pass, usr) => {
-    usr.findOne({ user: user, pass: pass }, function (err, obj) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("naso")
-            return obj;
-        }
-    })
-}
-
-
-
-module.exports = { findUser, Users, Products };
+module.exports = { Users, Products };

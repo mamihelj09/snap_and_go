@@ -3,6 +3,7 @@ const initialState = {
     allProducts: [],
     redirectToProduct: false,
     idToRedirect: "",
+    redirectToError: false,
     oneProduct: {},
 }
 export default (state = initialState, action) => {
@@ -11,34 +12,37 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 allProducts: action.payload,
-                redirecToErr: false,
+                redirectToError: false,
+
             }
         case "MY_PRODUCTS_RECIVED":
             return {
                 ...state,
                 myProducts: action.payload,
-                redirecToErr: false,
+                redirectToError: false,
+
             }
         case "ONE_PRODUCT_RECIVED":
             return {
                 ...state,
                 oneProduct: action.payload,
-                redirecToErr: false,
+                redirectToError: false,
+
             }
         case "REDIRECT_TO_PRODUCT":
             return {
                 ...state,
                 idToRedirect: action.payload,
                 redirectToProduct: true,
-                redirecToErr: false,
+                redirectToError: false,
             }
         case "UNMOUNT_REDIRECT_TO_PRODUCT":
             return {
                 ...state,
                 idToRedirect: "",
                 redirectToProduct: false,
+                redirectToError: false,
                 oneProduct: {},
-                redirecToErr: false,
             }
         case "ADD_BID":
             return {
@@ -49,8 +53,14 @@ export default (state = initialState, action) => {
                     maxBidUser: action.payload.userID,
                 }
             }
+        case "ITEM_HAS_EXPIRED":
+            return {
+                ...state,
+                idToRedirect: "",
+                redirectToError: true,
+                oneProduct: {},
+            }
         default:
             return state
     }
-    // return state
 }

@@ -27,10 +27,16 @@ io.on("connect", (socket) => {
     console.log("Client connected")
 
     socket.on("makeNewBid", (data) => {
+        console.log(data)
         something.Products.findOne({ productID: data.productID }, (err, product) => {
             if (err) console.log("nista", err)
             else {
-                if (data.bid > product.maxBid) {
+                if (!product) {
+                    console.log("Nema ga vise")
+                    socket.emit("expired", { productID: data.productID })
+                    socket.broadcast.emit("expired", { productID: data.productID })
+                }
+                else if (data.bid > product.maxBid) {
                     product.update({ maxBid: data.bid, maxBidUser: data.userID }, (err) => {
                         if (err) console.log("nista", err)
                         else {

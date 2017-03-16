@@ -1,6 +1,7 @@
 const io = require("socket.io-client")
 // const socket = io.connect("http://localhost:9000/")
 const socket = io.connect("http://192.168.5.175:9000")
+// const socket = io.connect("http://10.15.19.171:9000")
 
 export const fetchAllProducts = () => {
     return (dispatch) => {
@@ -12,6 +13,9 @@ export const fetchAllProducts = () => {
                 res.json().then(data => {
                     dispatch({ type: "ALL_PRODUCTS_RECIVED", payload: data })
                 })
+            } else {
+                dispatch({ type: "REDIRECT_TO_ERROR" })
+
             }
         })
     }
@@ -28,6 +32,8 @@ export const fetchMyProducts = (id) => {
                 res.json().then(data => {
                     dispatch({ type: "MY_PRODUCTS_RECIVED", payload: data })
                 })
+            } else {
+                dispatch({ type: "REDIRECT_TO_ERROR" })
             }
         })
     }
@@ -58,6 +64,7 @@ export const fetchOneProductToDisplay = (id) => {
                     dispatch({ type: "ONE_PRODUCT_RECIVED", payload: data })
                 })
             } else {
+                console.log("nece")
                 dispatch({ type: "REDIRECT_TO_ERROR" })
             }
         })
@@ -73,12 +80,17 @@ export const addBid = (bid, productID, userID) => {
 
 }
 
-export const recivedNewBits = (bid, userID, timeCreated) => {
+export const recivedNewBits = (bid, sellerID, timeCreated) => {
     var time = new Date(timeCreated)
     time.setMinutes(time.getMinutes() + 10)
-    console.log(time)
     return {
         type: "ADD_BID",
-        payload: { bid, userID }
+        payload: { bid, sellerID }
+    }
+}
+
+export const itemHasExpired = () => {
+    return {
+        type: "ITEM_HAS_EXPIRED"
     }
 }

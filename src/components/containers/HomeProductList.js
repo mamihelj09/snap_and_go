@@ -7,7 +7,6 @@ import { unmountRedirectToProduct, redirectToProduct, fetchAllProducts, fetchMyP
 class HomeProductList extends Component {
 
     componentDidMount() {
-        // if (this.props.products.allProducts.length < 1) 
         this.props.fetchAllProducts();
     }
 

@@ -10,6 +10,7 @@ import SignUp from "./routes/SignUp"
 import Profile from "./routes/Profile"
 import AddProduct from "./routes/AddProduct"
 import ProductPreview from "./routes/ProductPreview"
+import ErrorPage from "./routes/ErrorPage"
 
 import "./css/App.css"
 
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route path="/profile/:id/" component={Profile} />
         <Route path="/addproduct" component={AddProduct} />
         <Route path="/product/:id" component={ProductPreview} />
+        <Route path="/error" component={ErrorPage} />
       </div>
     </Router>
   </Provider>

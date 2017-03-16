@@ -79,7 +79,7 @@ class AddProductLogic extends Component {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        userID: this.props.user.user.id,
+                        sellerID: this.props.user.user.id,
                         productID: this.state.name + Date.now(),
                         name: this.state.name,
                         description: this.state.description,
