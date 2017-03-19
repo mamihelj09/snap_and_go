@@ -18,6 +18,20 @@ const storage = multer.diskStorage({
 
 var upload = multer({ storage: storage })
 
+routes.post("/removeMessage", (req, res) => {
+    console.log("/removeMessage")
+    something.Users.findOneAndUpdate({ id: req.body.id }, {
+        $pull: {
+            "messages": {
+                productID: req.body.productID
+            }
+        }
+    }, (err) => {
+        if (!err) res.send(200)
+        else console.log(err)
+    })
+})
+
 routes.post("/fetchOneProduct", (req, res) => {
     console.log("req => /fetchOne");
     something.Products.findOne({ productID: req.body.id }, (err, product) => {
@@ -70,18 +84,35 @@ routes.post("/addProduct", (req, res) => {
                         if (product && !err) {
                             something.Users.findOne({ id: product.maxBidUser }, (err, user) => {
                                 if (user && !err) {
-                                    console.log("user", user)
                                     user.update({
-                                        messages: [{
-                                            sellerID: product.sellerID,
-                                            sellerMail: seller.email,
-                                            productID: product.productID,
-                                            productName: product.name,
-                                            price: product.maxBid,
-                                        }]
+                                        $push: {
+                                            "messages": {
+                                                id: product.sellerID,
+                                                mail: seller.email,
+                                                productID: product.productID,
+                                                productName: product.name,
+                                                price: product.maxBid,
+                                                type: "BOUGHT",
+                                            }
+                                        }
                                     }, (err) => {
-                                        if (!err) console.log("proslo")
+                                        if (!err) console.log("proslo user")
                                         else console.log("nije prolso", err)
+                                    })
+                                    seller.update({
+                                        $push: {
+                                            "messages": {
+                                                id: user.id,
+                                                mail: user.email,
+                                                productID: product.productID,
+                                                productName: product.name,
+                                                price: product.maxBid,
+                                                type: "SOLD",
+                                            }
+                                        }
+                                    }, (err) => {
+                                        if (!err) console.log("proso seller")
+                                        else console.log("nije proso", err)
                                     })
                                 } else console.log(err)
                             })
@@ -99,7 +130,7 @@ routes.post("/addProduct", (req, res) => {
                     })
                 } else console.log(err)
             })
-        }, 1000 * 60) //1000 => sec
+        }, 1000 * 60 * 10) //1000 => sec
         if (err) res.send(403)
         res.send(200)
     })

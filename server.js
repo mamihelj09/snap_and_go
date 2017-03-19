@@ -27,7 +27,6 @@ io.on("connect", (socket) => {
     console.log("Client connected")
 
     socket.on("makeNewBid", (data) => {
-        console.log(data)
         something.Products.findOne({ productID: data.productID }, (err, product) => {
             if (err) console.log("nista", err)
             else {

@@ -1,5 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import { removeMessage } from "../../actions/products_actions"
 
 const ProfileMessages = React.createClass({
     render() {
@@ -10,9 +12,10 @@ const ProfileMessages = React.createClass({
                     {!(this.props.user.user.messages.length > 0) ? <div>No messages...</div> :
                         <div>
                             {this.props.user.user.messages.map((item, i) => (
-                                <div>
-                                    <span>SellerEmail: {item.sellerMail} | </span>
+                                <div key={i}>
+                                    <span><b>{item.type}</b> SellerEmail: {item.mail} | </span>
                                     <span>Product: {item.productName} {item.price}$</span>
+                                    <button onClick={() => this.props.removeMessage(item.productID, this.props.user.user.id, localStorage.getItem("token"))}>Remove</button>
                                 </div>
                             ))}
                         </div>}
@@ -31,4 +34,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(ProfileMessages)
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+        removeMessage
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(ProfileMessages)

@@ -6,7 +6,7 @@ import Timer from "./Timer"
 
 const io = require("socket.io-client")
 // const socket = io.connect("http://localhost:9000/")
-const socket = io.connect("http://192.168.5.175:9000")
+const socket = io.connect("http://192.168.5.171:9000")
 // const socket = io.connect("http://10.15.19.171:9000")
 
 
@@ -22,7 +22,7 @@ class BiddingLogic extends Component {
     componentDidMount() {
         socket.on("getBids", (data) => {
             if (data.productID === this.props.products.oneProduct.productID)
-                this.props.recivedNewBits(data.bid, data.sellerID, data.timeCreated)
+                this.props.recivedNewBits(data.bid, data.userID, data.timeCreated)
         })
         socket.on("expired", (data) => {
             console.log("did mount")
@@ -39,16 +39,17 @@ class BiddingLogic extends Component {
 
     render() {
         var date = new Date(this.props.products.oneProduct.timeCreated)
-        date.setMinutes(date.getMinutes() + 1)
+        date.setMinutes(date.getMinutes() + 10)
+
         return (
             <div>
                 <Timer start={date.getTime()} />
                 <h3>Item starts at: ${this.props.products.oneProduct.startPrice}</h3> <hr />
                 <h4>Current max bid: {this.props.products.oneProduct.maxBid}$
-                                {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h4>
+                    {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h4>
                 <input type="number" onChange={this.handleChange.bind(this)} />
-                <button onClick={() => this.props.addBid(this.state.bid, this.props.products.oneProduct.productID, localStorage.getItem("id"))}>Bid</button>
-                <button onClick={() => this.props.addBid(++this.props.products.oneProduct.maxBid, this.props.products.oneProduct.productID, localStorage.getItem("id"))}>BidUp</button>
+                <button onClick={() => this.props.addBid(this.state.bid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>Bid</button>
+                <button onClick={() => this.props.addBid(++this.props.products.oneProduct.maxBid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>BidUp</button>
             </div>
         )
     }

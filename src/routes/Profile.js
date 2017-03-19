@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import AddProduct from "../components/containers/AddProduct"
 import ProfileProductList from "../components/containers/ProfileProductList"
-import ProfileMessages from "../components/presentationals/ProfileMessages"
+import ProfileMessages from "../components/containers/ProfileMessages"
 
 class Profile extends Component {
 

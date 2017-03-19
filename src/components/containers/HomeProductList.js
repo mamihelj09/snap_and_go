@@ -6,7 +6,7 @@ import { unmountRedirectToProduct, redirectToProduct, fetchAllProducts, fetchMyP
 
 class HomeProductList extends Component {
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchAllProducts();
     }
 

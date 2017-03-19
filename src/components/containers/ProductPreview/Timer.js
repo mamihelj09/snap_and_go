@@ -28,11 +28,13 @@ var Timer = React.createClass({
 
     render() {
         var elapsed = Math.round(this.state.elapsed / 100);
-        var seconds = (elapsed / 10).toFixed(1);
+        var seconds = ((elapsed / 10)).toFixed(1);
+        var sec = ((seconds % 60)).toFixed(1)
+        var min = (((elapsed / 10) / 60) - 0.5).toFixed(0)
+
         return (
             <div>
-                {this.props.start}
-                <p>Until the end of auction: <b>{seconds} seconds</b></p>
+                <p>Until the end of auction: <b>{min} : {sec}</b></p>
             </div>
         );
     }

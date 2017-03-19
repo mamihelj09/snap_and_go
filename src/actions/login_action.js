@@ -20,10 +20,11 @@ export const login = (mail, pass) => {
 
 export const fetchUserInfoToken = (token) => {
     return (dispatch) => {
+        console.log("aaa")
         fetch("/authentication/token", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ token: token })
+            body: JSON.stringify({ token })
         }).then(res => {
             if (res.status === 200) {
                 res.json().then(data => {
