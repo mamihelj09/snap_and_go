@@ -37,7 +37,13 @@ export const fetchUserInfoToken = (token) => {
     }
 }
 
-export const fetchUserEmailSignup = (newUser) => {
+export const fetchUserEmailSignup = (user) => {
+    var newUser = {
+        email: user.email,
+        pass: user.pass,
+        fullName: user.firstName + " " + user.lastName,
+        place: user.city + ", " + user.state,
+    }
     return (dispatch) => {
         fetch("/authentication/signup", {
             method: "POST",
@@ -58,7 +64,20 @@ export const fetchUserEmailSignup = (newUser) => {
 }
 
 export const logout = () => {
+    localStorage.removeItem("token")
+    localStorage.removeItem("id")
     return {
         type: "LOGOUT"
+    }
+}
+
+export const redirectToTome = () => {
+    return {
+        type: "REDIRECT_TO_HOME"
+    }
+}
+export const unmountRedirectToTome = () => {
+    return {
+        type: "UNMOUNT_REDIRECT_TO_HOME"
     }
 }

@@ -1,0 +1,71 @@
+.log_sign_up{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+.log_sign_up .container{
+    width: 100%;
+}
+.log_sign_up .left{
+    height: 100vh;
+    background: #F14946;
+    display: flex;
+    text-align: center;
+    align-items: center;    
+    flex-direction: column;
+    justify-content: center;    
+}
+.log_sign_up .left a{
+    margin-bottom: 120px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 100px!important;
+}
+.log_sign_up .left a:hover{
+    color: #333;
+    cursor: pointer;
+}
+.log_sign_up .left h4{
+    color: #fff;
+    font-size: 22px;
+}
+.log_sign_up .right{
+    height: 100vh;
+    background: #333;
+    color: #fff;
+}
+.box{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box a{
+    text-decoration: none;
+    color: grey;
+}
+.log_sign_up .right input{
+    background: #333;
+    border: none;
+    border-bottom: 1px #ccc solid;
+    font-size: 25px;
+    padding: 10px;
+    width: 60%;
+    outline: none;
+}
+.doubleInput{
+    text-align: center;
+}
+.smallInput{
+    margin:0 1%;
+    width: 29%!important;
+}
+.log_sign_up .right button{
+    margin:30px 0;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    background: #F14946;
+    padding: 18px 80px;
+    font-size: 16px;
+}

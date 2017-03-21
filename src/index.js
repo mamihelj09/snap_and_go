@@ -13,6 +13,12 @@ import ProductPreview from "./routes/ProductPreview"
 import ErrorPage from "./routes/ErrorPage"
 
 import "./css/App.css"
+import "./css/Navbar.css"
+import "./css/ProductListItem.css"
+import "./css/ProductPreview.css"
+import "./css/Profile.css"
+import "./css/AddProduct.css"
+import "./css/LogSing-Up.css"
 
 ReactDOM.render(
   <Provider store={store}>

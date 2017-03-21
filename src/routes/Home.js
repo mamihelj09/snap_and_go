@@ -1,21 +1,23 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import HomeProductList from "../components/containers/HomeProductList"
+import HomeNav from "../components/presentationals/nav/HomeNav"
 
 class Home extends Component {
 
     render() {
         return (
             <div>
-                <h1 className="logo">Snap'n'Go</h1>
-                <Link to="/login" >Login</Link><br />
-                <Link to="/singup" >Signup</Link><br />
-                {localStorage.getItem("id") ?
-                    <Link to={"/profile/" + localStorage.getItem("id")} >Profile</Link> :
-                    <Link to="/login" >Profile</Link>
-                }
-                <hr />
-                <HomeProductList />
+                <HomeNav />
+                <div className="infoText hidden-sm hidden-xs">
+                    <span>Here you can buy best products for the best price!</span><br />
+                    <h3>Every auction last's exactly 1 hour, so hurry up!</h3>
+                </div>
+                <div className="container main">
+                    <h1>Some Neat Products</h1>
+                    <hr />
+                    <HomeProductList />
+                </div>
             </div>
         )
     }

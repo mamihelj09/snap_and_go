@@ -24,8 +24,17 @@ export default (state = initialState, action) => {
                 loggedIn: false,
                 user: {},
             }
+        case "REDIRECT_TO_HOME":
+            return {
+                ...state,
+                redirectToHome: true,
+            }
+        case "UNMOUNT_REDIRECT_TO_HOME":
+            return {
+                ...state,
+                redirectToHome: false,
+            }
         default:
             return state
     }
-    // return state
 }

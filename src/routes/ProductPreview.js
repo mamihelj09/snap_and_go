@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux"
 import { unmountRedirectToProduct } from "../actions/products_actions"
 import { Redirect, Link } from "react-router-dom"
 
-
+import SimpleNav from "../components/presentationals/nav/SimpleNav"
 import MainProductPreview from "../components/containers/ProductPreview/MainProductPreview"
 import BiddingLogic from "../components/containers/ProductPreview/BiddingLogic"
 
@@ -17,12 +17,12 @@ class ProductPreview extends Component {
     render() {
         return (
             <div>
-                {this.props.products.redirectToError ? <Redirect to="/error" /> : <div>
+                <SimpleNav />
+                {this.props.products.redirectToError ? <Redirect to="/error" /> : <div className="container">
                     {!this.props.products.redirectToProduct ? <Redirect to="/" /> :
                         <div className="row">
-                            <Link to="/">Go home</Link>
-                            <hr />
-                            <div className="col-sm-6">
+                            <br />
+                            <div className="col-sm-5">
                                 <MainProductPreview />
                             </div>
                             <div className="col-sm-6">

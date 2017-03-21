@@ -39,14 +39,17 @@ class BiddingLogic extends Component {
 
     render() {
         var date = new Date(this.props.products.oneProduct.timeCreated)
-        date.setMinutes(date.getMinutes() + 10)
+        date.setMinutes(date.getMinutes() + 60)
+        console.log(date)
 
         return (
-            <div>
-                <Timer start={date.getTime()} />
+            <div className="bid_display">
+                <h1>{this.props.products.oneProduct.name}</h1>
+                <h5>{this.props.products.oneProduct.description}</h5>
                 <h3>Item starts at: ${this.props.products.oneProduct.startPrice}</h3> <hr />
-                <h4>Current max bid: {this.props.products.oneProduct.maxBid}$
-                    {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h4>
+                <Timer start={date.getTime()} />
+                <h3>Current max bid: {this.props.products.oneProduct.maxBid}$
+                    {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h3>
                 <input type="number" onChange={this.handleChange.bind(this)} />
                 <button onClick={() => this.props.addBid(this.state.bid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>Bid</button>
                 <button onClick={() => this.props.addBid(++this.props.products.oneProduct.maxBid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>BidUp</button>

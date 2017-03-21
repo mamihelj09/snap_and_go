@@ -3,7 +3,8 @@ import Dropzone from "react-dropzone"
 import $ from "jquery"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { fetchUserInfoToken } from "../../actions/login_action"
+import { Redirect } from "react-router-dom"
+import { fetchUserInfoToken, redirectToTome, unmountRedirectToTome } from "../../actions/login_action"
 
 class AddProductLogic extends Component {
 
@@ -22,6 +23,10 @@ class AddProductLogic extends Component {
         if (localStorage.getItem("token") && !this.props.user.loggedIn) {
             this.props.fetchUserInfoToken(localStorage.getItem("token"))
         }
+    }
+
+    componentWillUnmount() {
+        this.props.unmountRedirectToTome()
     }
 
     async drop(file) {
@@ -87,6 +92,10 @@ class AddProductLogic extends Component {
                         imgsPath: path,
                         bids: [],
                     })
+                }).then(res => {
+                    if (res.status === 200) {
+                        this.props.redirectToTome()
+                    }
                 })
             }
         })
@@ -106,18 +115,18 @@ class AddProductLogic extends Component {
 
 
     render() {
+        console.log("aaa")
+        if (this.props.user.redirectToTome) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         return (
-            <div>
+            < div className="container" >
                 <div className="row">
                     <h1>Add Product</h1> <hr />
                     <div className="col-sm-6">
-                        <input type="text" placeholder="Product name" onChange={this.handleNameChange.bind(this)} /> <br />
-                        <textarea cols="30" rows="10" placeholder="Product description" onChange={this.handleDescriptionChange.bind(this)} /> <br />
-                        <input type="number" placeholder="Start price" onChange={this.handlePriceChange.bind(this)} />$ <br />
-                        <button onClick={this.add.bind(this)}>Add</button>
-                    </div>
-                    <div className="col-sm-6">
-                        <Dropzone accept="image/*" multiple={true} onDrop={this.drop.bind(this)} >
+                        <Dropzone className="dropzone" accept="image/*" multiple={true} onDrop={this.drop.bind(this)} >
                             <span>Drop max 3 files here</span>
                         </Dropzone> <br />
                         {this.state.imagePreviewUrl.length !== 0 ?
@@ -128,8 +137,15 @@ class AddProductLogic extends Component {
                             </div> : <div>No images to display...</div>
                         }
                     </div>
+                    <div className="col-sm-6">
+                        <input type="text" placeholder="Product name" onChange={this.handleNameChange.bind(this)} /> <br />
+                        <textarea cols="30" rows="10" placeholder="Product description" onChange={this.handleDescriptionChange.bind(this)} /> <br />
+                        <input type="number" placeholder="Start price" onChange={this.handlePriceChange.bind(this)} />$ <br />
+                        <button onClick={this.add.bind(this)}>Add</button>
+                    </div>
+                    <br />
                 </div>
-            </div>
+            </div >
         )
     }
 }
@@ -143,7 +159,9 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        fetchUserInfoToken: fetchUserInfoToken,
+        fetchUserInfoToken,
+        redirectToTome,
+        unmountRedirectToTome,
     }, dispatch)
 }
 

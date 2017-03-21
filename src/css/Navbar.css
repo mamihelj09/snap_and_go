@@ -1,0 +1,42 @@
+.nav{
+    width: 100%;
+    background: #F14946;
+    padding: 15px 10px;
+}
+.hidden{
+  visibility: hidden;
+}
+.navLogo{
+    font-size:50px!important;
+    float: left!important;
+    font-family: 'Lobster', cursive;
+}
+.nav a{
+  color:#fff;
+  font-size:20px;
+  float: right;
+  text-decoration: none;
+}
+ .nav i{
+   color:#fff;
+   font-size:40px;
+   float: right;
+ }
+.nav a:hover,.nav i:hover,.menu a:hover{
+  color:#333;
+  cursor: pointer;
+}
+.menu{
+  text-align: left;
+  /*float: right;*/
+  background: #F14946;
+  width: 100%;
+  position: relative;
+}
+.menu a{
+  padding:0 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+
+}

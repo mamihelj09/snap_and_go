@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { unmountRedirectToProduct, redirectToProduct, fetchMyProducts } from "../../actions/products_actions"
+import ProductListItem from "../presentationals/ProductListItem"
 
 class ProfileProductList extends Component {
 
@@ -21,11 +22,13 @@ class ProfileProductList extends Component {
                         {this.props.products.myProducts.length > 0 ?
                             <div>
                                 {this.props.products.myProducts.map((item, i) => (
-                                    <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-sm-4 border">
-                                        <img role="presentation" src={"../" + item.imgsPath[0]} />
-                                        <h1>{item.name}</h1>
-                                        <h4>{item.description}</h4>
-                                        <h4>Current price: ${item.maxBid}</h4>
+                                    <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-sm-5 item">
+                                        <ProductListItem
+                                            img={"../" + item.imgsPath[0]}
+                                            name={item.name}
+                                            description={item.description}
+                                            maxBid={item.maxBid}
+                                        />
                                     </div>
                                 ))}
                             </div> : <div>Empty...</div>

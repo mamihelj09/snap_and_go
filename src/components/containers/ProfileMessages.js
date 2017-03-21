@@ -7,8 +7,9 @@ const ProfileMessages = React.createClass({
     render() {
         if (this.props.user.loggedIn) {
             return (
-                <div>
+                <div className="message_cont">
                     <h2>Messages:</h2>
+                    <hr />
                     {!(this.props.user.user.messages.length > 0) ? <div>No messages...</div> :
                         <div>
                             {this.props.user.user.messages.map((item, i) => (
@@ -19,7 +20,6 @@ const ProfileMessages = React.createClass({
                                 </div>
                             ))}
                         </div>}
-                    <hr />
                 </div>
             )
         }

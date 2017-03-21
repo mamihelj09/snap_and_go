@@ -1,0 +1,35 @@
+.img_cont img{
+    height: 260px;
+  width: auto;
+}
+.smallImg{
+  height: 60px!important;
+}
+.smallImg:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
+.bid_display{
+    margin: 10px 60px;
+}
+.bid_display input{
+    font-size: 20px;
+    width: 180px;
+    border: 1px solid #333;
+    border-radius: 2px;
+    margin: 5px;
+    outline: none;
+}
+.bid_display button{
+    margin: 5px;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    color: #fff;
+    background: #EF5350;
+}
+.bid_display button:hover{
+    color: #fff;
+    background: #333;
+    cursor: pointer;
+}

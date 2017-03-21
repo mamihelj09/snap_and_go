@@ -22,18 +22,15 @@ class MainProductPreview extends Component {
 
     render() {
         return (
-            <div>
+            <div className="img_cont">
                 {!this.props.products.oneProduct.imgsPath ? <div></div> :
                     <div>
-                        <img role="presentation" className="preview" src={"../" + this.props.products.oneProduct.imgsPath[this.state.selectedImg]} />
+                        <img role="presentation" src={"../" + this.props.products.oneProduct.imgsPath[this.state.selectedImg]} />
                         <hr />
                         {this.props.products.oneProduct.imgsPath.map((item, i) => (
                             <img role="presentation" onClick={() => this.selectImg(i)} className="smallImg" src={"../" + item} key={i} />
                         ))}
                     </div>}
-                <h1>{this.props.products.oneProduct.name}</h1>
-                <h4>{this.props.products.oneProduct.description}</h4>
-                <h4>${this.props.products.oneProduct.startPrice}</h4>
             </div>
         )
     }

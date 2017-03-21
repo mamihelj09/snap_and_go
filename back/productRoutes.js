@@ -130,7 +130,7 @@ routes.post("/addProduct", (req, res) => {
                     })
                 } else console.log(err)
             })
-        }, 1000 * 60 * 10) //1000 => sec
+        }, 1000 * 60 * 60) //1000 => sec
         if (err) res.send(403)
         res.send(200)
     })

@@ -1,0 +1,20 @@
+.item{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding:5px 40px;
+    text-align: center;
+}
+.item:hover{
+    border: 1px solid #333;
+    cursor: pointer;    
+}
+.item img{
+  width: auto;
+  height: 100px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.item h2, .item h4{
+    text-align: left;
+}
