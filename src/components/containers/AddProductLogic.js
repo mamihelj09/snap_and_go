@@ -4,7 +4,7 @@ import $ from "jquery"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Redirect } from "react-router-dom"
-import { fetchUserInfoToken, redirectToTome, unmountRedirectToTome } from "../../actions/login_action"
+import { fetchUserInfoToken } from "../../actions/login_action"
 
 class AddProductLogic extends Component {
 
@@ -92,10 +92,6 @@ class AddProductLogic extends Component {
                         imgsPath: path,
                         bids: [],
                     })
-                }).then(res => {
-                    if (res.status === 200) {
-                        this.props.redirectToTome()
-                    }
                 })
             }
         })
@@ -115,12 +111,6 @@ class AddProductLogic extends Component {
 
 
     render() {
-        console.log("aaa")
-        if (this.props.user.redirectToTome) {
-            return (
-                <Redirect to="/" />
-            )
-        }
         return (
             < div className="container" >
                 <div className="row">
@@ -160,8 +150,6 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         fetchUserInfoToken,
-        redirectToTome,
-        unmountRedirectToTome,
     }, dispatch)
 }
 

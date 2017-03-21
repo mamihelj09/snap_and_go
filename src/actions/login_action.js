@@ -70,14 +70,3 @@ export const logout = () => {
         type: "LOGOUT"
     }
 }
-
-export const redirectToTome = () => {
-    return {
-        type: "REDIRECT_TO_HOME"
-    }
-}
-export const unmountRedirectToTome = () => {
-    return {
-        type: "UNMOUNT_REDIRECT_TO_HOME"
-    }
-}

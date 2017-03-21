@@ -5,10 +5,13 @@ class ErrorPage extends Component {
 
     render() {
         return (
-            <div>
-                <Link to="/">Go home</Link>
-                <h1>Auction over!</h1>
-                <h3>Product doesn't exist anymore!</h3>
+            <div className="error">
+                <div className="box">
+                    <h1 class="navLogo">Snap'n'NO Go!</h1>
+                    <Link to="/">Go Home</Link>
+                    <h2>Auction over!</h2>
+                    <h3>Product doesn't exist anymore!</h3>
+                </div>
             </div>
         )
     }
