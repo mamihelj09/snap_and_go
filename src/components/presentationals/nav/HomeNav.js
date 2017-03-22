@@ -12,7 +12,7 @@ class HomeNav extends React.Component {
         return (
             <div>
                 <div className="nav">
-                    <Link to="/" className="navbar-brand navLogo">Snap'n'Go!</Link>
+                    <Link to="/" className="navbar-brand navLogo">Snap'n'Go!<span id="version">ALPHA</span></Link>
                     <Link to="/login" className="col-lg-1 hidden-sm hidden-xs">Login</Link>
                     <Link to="/singup" className="col-lg-1 hidden-sm hidden-xs">Signup</Link>
                     {localStorage.getItem("id") ?

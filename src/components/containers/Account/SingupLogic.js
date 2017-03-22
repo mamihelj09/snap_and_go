@@ -53,7 +53,7 @@ class SignupLogic extends Component {
                     {this.props.user.loggedIn ? <Redirect to={"/profile/" + localStorage.getItem("id")} /> :
                         <div className="row">
                             <div className="col-sm-6 col-xs-12 left">
-                                <Link to="/" className="navbar-brand navLogo">Snap'n'Go!</Link>
+                                <Link to="/" className="navbar-brand navLogo">Snap'n'Go!<span id="version">ALPHA</span></Link>
                                 <h4>Some motivational text to motivate you to sign up in and use my awesome site!!!</h4>
                             </div>
                             <div className="col-sm-6 col-xs-12 right">
