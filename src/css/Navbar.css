@@ -2,6 +2,8 @@
     width: 100%;
     background: #F14946;
     padding: 15px 10px;
+    border-bottom: 1px solid #fff;
+    height: 12vh;
 }
 .hidden{
   visibility: hidden;

@@ -4,12 +4,12 @@
 .profile_info{
     text-align: center;
     padding: 20px;
-    background: #ccc;
+    background: #EBEBEB;
     border-radius: 5px;
 }
 .profile_info button{
-    background: #F14946;
     color: #fff;
+    background: #F14946;
     padding: 4px 10px;
     border: none;
     border-radius: 5px;

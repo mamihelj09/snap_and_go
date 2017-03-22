@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import ProfileDisplay from "../components/containers/ProfileDisplay"
 import ProfileProductList from "../components/containers/ProfileProductList"
 import ProfileMessages from "../components/containers/ProfileMessages"
@@ -15,11 +14,25 @@ class Profile extends Component {
                     <h1>Profile info</h1>
                     <hr />
                     <div className="row">
-                        <div className="col-sm-7 col-xs-12">
-                            <h2>My products:</h2>
-                            <ProfileProductList />
+                        {/*mobile prikaz*/}
+                        <div className="col-xs-12 col-sm-6 hidden-md hidden-lg profile_info">
+                            <ProfileDisplay />
+                            <ProfileMessages />
                         </div>
-                        <div className="col-sm-5 col-xs-12 profile_info">
+                        <div className="col-xs-12 col-sm-6 hidden-md hidden-lg">
+                            <h2>My products:</h2>
+                            <div className="row main">
+                                <ProfileProductList />
+                            </div>
+                        </div>
+                        {/*web prikaz*/}
+                        <div className="col-sm-8 hidden-sm hidden-xs">
+                            <h2>My products:</h2>
+                            <div className="row main">
+                                <ProfileProductList />
+                            </div>
+                        </div>
+                        <div className="col-sm-4 hidden-sm hidden-xs profile_info">
                             <ProfileDisplay />
                             <ProfileMessages />
                         </div>

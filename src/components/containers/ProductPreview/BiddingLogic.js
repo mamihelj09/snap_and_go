@@ -46,7 +46,8 @@ class BiddingLogic extends Component {
             <div className="bid_display">
                 <h1>{this.props.products.oneProduct.name}</h1>
                 <h5>{this.props.products.oneProduct.description}</h5>
-                <h3>Item starts at: ${this.props.products.oneProduct.startPrice}</h3> <hr />
+                <h3>Item starts at: ${this.props.products.oneProduct.startPrice}</h3>
+                <hr />
                 <Timer start={date.getTime()} />
                 <h3>Current max bid: {this.props.products.oneProduct.maxBid}$
                     {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h3>

@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import HomeProductList from "../components/containers/HomeProductList"
 import HomeNav from "../components/presentationals/nav/HomeNav"
 
@@ -16,7 +15,9 @@ class Home extends Component {
                 <div className="container main">
                     <h1>Some Neat Products</h1>
                     <hr />
-                    <HomeProductList />
+                    <div className="row">
+                        <HomeProductList />
+                    </div>
                 </div>
             </div>
         )

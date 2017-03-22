@@ -3,7 +3,6 @@ import Dropzone from "react-dropzone"
 import $ from "jquery"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Redirect } from "react-router-dom"
 import { fetchUserInfoToken } from "../../actions/login_action"
 
 class AddProductLogic extends Component {
@@ -23,10 +22,6 @@ class AddProductLogic extends Component {
         if (localStorage.getItem("token") && !this.props.user.loggedIn) {
             this.props.fetchUserInfoToken(localStorage.getItem("token"))
         }
-    }
-
-    componentWillUnmount() {
-        this.props.unmountRedirectToTome()
     }
 
     async drop(file) {

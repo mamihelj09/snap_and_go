@@ -14,13 +14,13 @@ class HomeProductList extends Component {
 
     render() {
         return (
-            <div className="row">
+            <div>
                 {this.props.products.redirectToProduct ? <Redirect to={"/product/" + this.props.products.idToRedirect} /> :
                     <div>
                         {this.props.products.allProducts.length > 0 ?
                             <div>
                                 {this.props.products.allProducts.map((item, i) => (
-                                    <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-xs-12 col-sm-6 col-md-3 item">
+                                    <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                                         <ProductListItem
                                             img={item.imgsPath[0]}
                                             name={item.name}

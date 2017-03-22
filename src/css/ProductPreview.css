@@ -1,16 +1,23 @@
+.img_cont{
+    text-align: center;
+}
 .img_cont img{
     height: 260px;
-  width: auto;
+    width: auto;
 }
 .smallImg{
-  height: 60px!important;
+    float: left;
+    height: 60px!important;
 }
 .smallImg:hover{
-  cursor: pointer;
-  opacity: 0.7;
+    cursor: pointer;
+    opacity: 0.7;
 }
 .bid_display{
-    margin: 10px 60px;
+    /*margin: 10px 60px;*/
+    padding: 20px 120px;
+    border-radius: 25px;
+    background: #EBEBEB;
 }
 .bid_display input{
     font-size: 20px;

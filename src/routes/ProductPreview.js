@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { unmountRedirectToProduct } from "../actions/products_actions"
-import { Redirect, Link } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 import SimpleNav from "../components/presentationals/nav/SimpleNav"
 import MainProductPreview from "../components/containers/ProductPreview/MainProductPreview"
@@ -22,7 +22,7 @@ class ProductPreview extends Component {
                     {!this.props.products.redirectToProduct ? <Redirect to="/" /> :
                         <div className="row">
                             <br />
-                            <div className="col-sm-5">
+                            <div className="col-sm-6">
                                 <MainProductPreview />
                             </div>
                             <div className="col-sm-6">

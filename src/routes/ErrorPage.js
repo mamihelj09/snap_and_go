@@ -6,7 +6,7 @@ class ErrorPage extends Component {
     render() {
         return (
             <div className="error">
-                <div className="box">
+                <div className="error_box">
                     <h1 class="navLogo">Snap'n'NO Go!</h1>
                     <Link to="/">Go Home</Link>
                     <h2>Auction over!</h2>
