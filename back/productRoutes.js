@@ -56,7 +56,6 @@ routes.post("/fetchMyProducts", (req, res) => {
     })
 })
 
-//save to DB
 routes.post('/saveImgs', multer({ dest: "uploads/", storage }).array('data'), function (req, res, next) {
     console.log("req => /saveImgs");
     res.send(200, req.files)
@@ -64,6 +63,7 @@ routes.post('/saveImgs', multer({ dest: "uploads/", storage }).array('data'), fu
 
 routes.post("/addProduct", (req, res) => {
     console.log("req => /addProduct");
+    var img = req.body.imgsPath.length ? req.body.imgsPath : "uploads/err/no_img.png"
     var tempProduct = new something.Products({
         sellerID: req.body.sellerID,
         productID: req.body.productID,
@@ -73,7 +73,7 @@ routes.post("/addProduct", (req, res) => {
         maxBid: req.body.startPrice,
         maxBidUser: "",
         timeCreated: new Date(),
-        imgsPath: req.body.imgsPath,
+        imgsPath: img,
     })
     tempProduct.save((err, obj) => {
         var imgsPath = obj.imgsPath

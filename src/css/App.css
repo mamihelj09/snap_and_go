@@ -4,11 +4,13 @@ body {
   color: #333;
 }
 .infoText{
-  background: #F14946;
+  /*background: #F14946;*/
+  background: #ccc;
   height: 48vh;
   text-align: center;
   padding-top: 10%;
-  color: #fff;
+  /*color: #fff;*/
+  color: #333;
 }
 .infoText span{
   font-size: 40px;
@@ -18,10 +20,12 @@ body {
   text-align: center;
 }
 .error {
-  background: #F14946;
+  /*background: #F14946;*/
+  /*color: #fff;*/
+  background: #ccc;
+  color: #333;
   width: 100%;
   height: 100vh;
-  color: #fff;
 }
 .error h1{
   border-bottom: 1px solid #fff;

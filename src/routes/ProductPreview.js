@@ -22,10 +22,10 @@ class ProductPreview extends Component {
                     {!this.props.products.redirectToProduct ? <Redirect to="/" /> :
                         <div className="row">
                             <br />
-                            <div className="col-sm-6">
+                            <div className="col-sm-5">
                                 <MainProductPreview />
                             </div>
-                            <div className="col-sm-6">
+                            <div className="col-sm-7">
                                 <BiddingLogic />
                             </div>
                         </div>

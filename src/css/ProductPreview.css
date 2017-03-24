@@ -14,16 +14,15 @@
     opacity: 0.7;
 }
 .bid_display{
-    /*margin: 10px 60px;*/
-    padding: 20px 120px;
+    padding: 20px 120px 40px 120px;
     border-radius: 25px;
     background: #EBEBEB;
 }
 .bid_display input{
     font-size: 20px;
     width: 180px;
-    border: 1px solid #333;
-    border-radius: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin: 5px;
     outline: none;
 }

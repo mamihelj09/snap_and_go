@@ -9,20 +9,26 @@
 }
 .profile_info button{
     color: #fff;
-    background: #F14946;
+    /*background: #F14946;*/
+    background: #333;    
     padding: 4px 10px;
     border: none;
     border-radius: 5px;
 }
 .add_btn{
     margin-top: 20px;
-    padding: 10px 60px;
-    border-radius: 20px;
+    padding: 8px 80px;
+    border-radius: 35px;
     font-size: 60px;
     background: #F14946;
     color: #fff;
+
 }
-.add_btn:hover,.profile_info button:hover{
+.profile_info button:hover{
+    background: #F14946;
+    /*color: #333;*/
+}
+.add_btn:hover{
     background: #333;
     cursor: pointer;
 }

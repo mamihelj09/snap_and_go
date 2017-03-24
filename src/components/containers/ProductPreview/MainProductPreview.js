@@ -9,6 +9,7 @@ class MainProductPreview extends Component {
         super(props)
         this.state = {
             selectedImg: 0,
+            imgUrl: "../uploads/err/no_image_available.jpeg"
         }
     }
 
@@ -23,7 +24,11 @@ class MainProductPreview extends Component {
     render() {
         return (
             <div className="img_cont">
-                {!this.props.products.oneProduct.imgsPath ? <div></div> :
+                {console.log(this.props.products.oneProduct.imgsPath)}
+                {!this.props.products.oneProduct.imgsPath ?
+                    <div>
+                        <img src={this.state.imgUrl} role="presentation" />
+                    </div> :
                     <div>
                         <img role="presentation" src={"../" + this.props.products.oneProduct.imgsPath[this.state.selectedImg]} />
                         <hr />
