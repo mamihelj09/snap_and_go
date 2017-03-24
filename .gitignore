@@ -9,3 +9,5 @@ yarn-debug.log*
 yarn-error.log*
 
 back/PRIVATE_DATA.js
+
+test_imgs
