@@ -53,5 +53,7 @@ body {
   font-size: 20px;
   font-family: Arial;
 }
-
+.error_msg{
+  color: #F14946;
+}
 

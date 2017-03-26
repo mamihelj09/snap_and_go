@@ -1,6 +1,7 @@
 const initialState = {
     loggedIn: false,
     redirectToHome: false,
+    displayErrMsg: false,
     user: {}
 }
 export default (state = initialState, action) => {
@@ -10,13 +11,14 @@ export default (state = initialState, action) => {
                 ...state,
                 loggedIn: true,
                 redirectToHome: false,
+                displayErrMsg: false,
                 user: action.payload
             }
         case "LOGIN_FAILED":
             return {
                 ...state,
                 loggedIn: false,
-                redirectToHome: true,
+                displayErrMsg: true,
                 user: {},
             }
         case "LOGOUT":
@@ -24,6 +26,7 @@ export default (state = initialState, action) => {
                 ...state,
                 redirectToHome: true,
                 loggedIn: false,
+                displayErrMsg: false,
                 user: {},
             }
         case "REDIRECT_TO_HOME":

@@ -37,6 +37,7 @@ class LoginLogic extends Component {
                                     <input type="text" placeholder="E-mail" onChange={this.handleMailChange.bind(this)} /> <br />
                                     <input type="password" placeholder="Password" onChange={this.handlePassChange.bind(this)} /> <br />
                                     <button onClick={() => this.props.login(this.state.mail, this.state.pass)}>Login</button>
+                                    {this.props.user.displayErrMsg ? <h3 className="error_msg"><strong>Failed to log in!</strong></h3> : ""}
                                 </div>}
                         </div>
                     </div>

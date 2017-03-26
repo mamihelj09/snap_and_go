@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { Redirect, Link } from "react-router-dom"
 import { fetchUserEmailSignup } from "../../../actions/login_action"
-// import SimpleNav from "../../presentationals/nav/SimpleNav"
 
 class SignupLogic extends Component {
     constructor(props) {
@@ -76,6 +75,7 @@ class SignupLogic extends Component {
                                         <input className="smallInput" onChange={this.handleStateChange.bind(this)} type="text" placeholder="State" /><br />
                                     </div>
                                     <button onClick={() => this.props.fetchUserEmailSignup(this.state)}>Signup</button>
+                                    {this.props.user.displayErrMsg ? <h3 className="error_msg"><strong>Email is already in database</strong></h3> : ""}
                                 </div>
                             </div>
                         </div>}
