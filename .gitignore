@@ -10,4 +10,6 @@ yarn-error.log*
 
 back/PRIVATE_DATA.js
 
-test_imgs
+/test_imgs
+
+/uploads

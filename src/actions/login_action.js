@@ -20,7 +20,6 @@ export const login = (mail, pass) => {
 
 export const fetchUserInfoToken = (token) => {
     return (dispatch) => {
-        console.log("aaa")
         fetch("/authentication/token", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -68,5 +67,17 @@ export const logout = () => {
     localStorage.removeItem("id")
     return {
         type: "LOGOUT"
+    }
+}
+
+export const redirectToHome = () => {
+    return {
+        type: "REDIRECT_TO_HOME"
+    }
+}
+
+export const unmountRedirectToHome = () => {
+    return {
+        type: "UNMOUNT_REDIRECT_TO_HOME"
     }
 }

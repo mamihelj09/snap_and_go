@@ -17,6 +17,7 @@
     padding: 20px 120px 40px 120px;
     border-radius: 25px;
     background: #EBEBEB;
+    float: left;
 }
 .bid_display input{
     font-size: 20px;

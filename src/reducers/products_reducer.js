@@ -2,8 +2,8 @@ const initialState = {
     myProducts: [],
     allProducts: [],
     redirectToProduct: false,
-    idToRedirect: "",
     redirectToError: false,
+    idToRedirect: "",
     oneProduct: {},
 }
 export default (state = initialState, action) => {
@@ -13,21 +13,18 @@ export default (state = initialState, action) => {
                 ...state,
                 allProducts: action.payload,
                 redirectToError: false,
-
             }
         case "MY_PRODUCTS_RECIVED":
             return {
                 ...state,
                 myProducts: action.payload,
                 redirectToError: false,
-
             }
         case "ONE_PRODUCT_RECIVED":
             return {
                 ...state,
                 oneProduct: action.payload,
                 redirectToError: false,
-
             }
         case "REDIRECT_TO_PRODUCT":
             return {
@@ -60,6 +57,7 @@ export default (state = initialState, action) => {
                 redirectToError: true,
                 oneProduct: {},
             }
+
         default:
             return state
     }
