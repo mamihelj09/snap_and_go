@@ -1,25 +1,35 @@
-.img_cont{
+.img_cont {
     text-align: center;
 }
-.img_cont img{
-    height: 260px;
-    width: auto;
+
+.img_cont img {
+    opacity: 0.9;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    border-radius: 15px;
 }
-.smallImg{
+
+.smallImg {
     float: left;
-    height: 60px!important;
+    border-radius: 10px!important;
+    width: 30%!important;
 }
-.smallImg:hover{
+
+.smallImg:hover {
     cursor: pointer;
     opacity: 0.7;
 }
-.bid_display{
-    padding: 20px 120px 40px 120px;
+
+.bid_display {
+    padding: 10px;
     border-radius: 25px;
-    background: #EBEBEB;
+    /*background: #EBEBEB;*/
     float: left;
 }
-.bid_display input{
+
+.bid_display input {
     font-size: 20px;
     width: 180px;
     border: 1px solid #ccc;
@@ -27,15 +37,17 @@
     margin: 5px;
     outline: none;
 }
-.bid_display button{
+
+.bid_display button {
     margin: 5px;
     border: none;
     padding: 8px 25px;
     border-radius: 5px;
     color: #fff;
-    background: #EF5350;
+    background: #DB4437;
 }
-.bid_display button:hover{
+
+.bid_display button:hover {
     color: #fff;
     background: #333;
     cursor: pointer;

@@ -1,6 +1,6 @@
 const io = require("socket.io-client")
 // const socket = io.connect("http://localhost:9000/")
-const socket = io.connect("http://192.168.5.170:9000")
+const socket = io.connect("http://192.168.5.167:9000")
 // const socket = io.connect("http://10.15.19.171:9000")
 
 export const fetchAllProducts = () => {
@@ -109,7 +109,7 @@ export const removeMessage = (productID, id, token) => {
             if (res.status === 200) {
                 fetch("/authentication/token", {
                     method: "POST",
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ token })
                 }).then(res => {
                     if (res.status === 200) {
@@ -122,5 +122,43 @@ export const removeMessage = (productID, id, token) => {
                 })
             }
         })
+    }
+}
+
+export const fetchSearchedProducts = (name) => {
+    if (name === "" || name === " ") {
+        return (dispatch) => {
+            fetch("/upload/fetchAllProducts", {
+                method: "POST",
+                headers: { "Content-Type": "application/JSON" },
+            }).then(res => {
+                if (res.status === 200) {
+                    res.json().then(data => {
+                        dispatch({ type: "ALL_PRODUCTS_RECIVED", payload: data })
+                    })
+                } else {
+                    dispatch({ type: "REDIRECT_TO_ERROR" })
+
+                }
+            })
+        }
+    } else {
+        return (dispatch) => {
+            fetch("/upload/fetchSearchedProducts", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name })
+            }).then(res => {
+                if (res.status === 200) {
+                    res.json().then(data => {
+                        console.log(data)
+                        dispatch({ type: "ALL_PRODUCTS_RECIVED", payload: data })
+                    })
+                } else {
+                    dispatch({ type: "REDIRECT_TO_ERROR" })
+                }
+            })
+        }
+
     }
 }

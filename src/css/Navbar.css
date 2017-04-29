@@ -1,51 +1,105 @@
-.nav{
-    width: 100%;
-    /*background: #F14946;*/
-    background: #ccc;
-    padding: 15px 10px;
-    border-bottom: 1px solid #fff;
-    height: 14vh;
+.nav {
+  margin: auto;
+  width: 100%;
+  background: #333;
+  height: 9.5vh;
+  line-height: 9.5vh;
+  vertical-align: middle;
 }
-.hidden{
+
+.hidden {
   visibility: hidden;
 }
-.navLogo{
-    font-size:60px!important;
-    float: left!important;
-    font-family: 'Lobster', cursive;
+
+.navLogo {
+  font-size: 40px!important;
+  float: left!important;
+  font-family: 'Lobster', cursive;
 }
-.nav a{
-  /*color:#fff;*/
-  color: #333;
-  font-size:20px;
+
+.nav a {
+  color: #ccc;
+  font-size: 20px;
   float: right;
   text-decoration: none;
 }
- .nav i{
-   /*color:#fff;*/
-     color: #333;
-   font-size:40px;
-   float: right;
- }
-.nav a:hover,.nav i:hover,.menu a:hover{
-  /*color:#333;*/
-  color: #F14946;
+
+.nav i {
+  margin: 10px 10px 0 10px;
+  color: #ccc;
+  font-size: 40px;
+  float: right;
+}
+
+.nav a:hover, .nav i:hover, .menu a:hover {
+  color: #DB4437;
   cursor: pointer;
 }
-.menu{
-  text-align: left;
-  /*float: right;*/
-  /*background: #F14946;*/
+
+.infoText {
+  background: linear-gradient(110deg, #DB4437 59.92%, #ccc 60%);
+  width: 100%;
+  height: 91vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.search {
+  background: rgba(51, 51, 51, 0.6);
+  border-radius: 20px;
+  text-align: center;
+  padding: 40px;
+  color: #ccc;
+}
+
+.infoText h1 {
+  font-size: 40px;
+}
+
+.search_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.infoText button {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #ccc;
+  background: transparent;
+  outline: none;
+}
+
+.infoText button:hover {
   background: #ccc;
   color: #333;
-  width: 100%;
-  position: relative;
 }
-.menu a{
-  padding:0 20px;
-  /*color: #fff;*/
-  color: #333;
+
+.infoText input {
+  color: #ccc;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+.menu {
+  background: #333;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.menu a {
+  margin: 10px;
+  color: #ccc;
   text-decoration: none;
   font-size: 25px;
-
 }

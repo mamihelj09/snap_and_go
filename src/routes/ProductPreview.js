@@ -18,19 +18,20 @@ class ProductPreview extends Component {
         return (
             <div>
                 <SimpleNav />
-                {this.props.products.redirectToError ? <Redirect to="/error" /> : <div className="container">
-                    {!this.props.products.redirectToProduct ? <Redirect to="/" /> :
-                        <div className="row">
-                            <br />
-                            <div className="col-sm-5">
-                                <MainProductPreview />
+                {this.props.products.redirectToError ? <Redirect to="/error" /> :
+                    <div className="container">
+                        {!this.props.products.redirectToProduct ? <Redirect to="/" /> :
+                            <div className="row">
+                                <br />
+                                <div className="col-sm-6 col-xs-12" style={{ marginBottom: "15px" }}>
+                                    <MainProductPreview />
+                                </div>
+                                <div className="col-sm-6 col-xs-12">
+                                    <BiddingLogic />
+                                </div>
                             </div>
-                            <div className="col-sm-7">
-                                <BiddingLogic />
-                            </div>
-                        </div>
-                    }
-                </div>}
+                        }
+                    </div>}
             </div>
         )
     }

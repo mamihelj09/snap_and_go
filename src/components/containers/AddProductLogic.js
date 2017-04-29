@@ -114,7 +114,7 @@ class AddProductLogic extends Component {
     render() {
         console.log("aaaaaa")
         return (
-            < div className="container" >
+            < div className="container x" >
                 {this.props.user.redirectToHome ? <Redirect to="/" /> :
                     <div className="row">
                         <h1>Add Product</h1> <hr />

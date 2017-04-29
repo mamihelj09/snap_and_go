@@ -26,9 +26,7 @@ class MainProductPreview extends Component {
             <div className="img_cont">
                 {console.log(this.props.products.oneProduct.imgsPath)}
                 {!this.props.products.oneProduct.imgsPath ?
-                    <div>
-                        <img src={this.state.imgUrl} role="presentation" />
-                    </div> :
+                    <img src={this.state.imgUrl} role="presentation" /> :
                     <div>
                         <img role="presentation" src={"../" + this.props.products.oneProduct.imgsPath[this.state.selectedImg]} />
                         <hr />

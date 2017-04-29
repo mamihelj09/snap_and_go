@@ -33,7 +33,7 @@ routes.post("/removeMessage", (req, res) => {
 })
 
 routes.post("/fetchOneProduct", (req, res) => {
-    console.log("req => /fetchOne");
+    console.log("req => /fetchOne")
     something.Products.findOne({ productID: req.body.id }, (err, product) => {
         if (product) res.send(200, product)
         else res.send(403)
@@ -41,9 +41,18 @@ routes.post("/fetchOneProduct", (req, res) => {
 })
 
 routes.post("/fetchAllProducts", (req, res) => {
-    console.log("req => /fetchAllProducts");
+    console.log("req => /fetchAllProducts")
     something.Products.find({}, (err, products) => {
         if (products) res.send(200, products)
+        else res.send(403)
+    })
+})
+
+routes.post("/fetchSearchedProducts", (req, res) => {
+    console.log(req.body.name)
+    console.log("req => /fetchSearchedProducts")
+    something.Products.find({ name: { "$regex": req.body.name.toLowerCase() } }, (err, product) => {
+        if (product) res.send(200, product)
         else res.send(403)
     })
 })
@@ -67,7 +76,7 @@ routes.post("/addProduct", (req, res) => {
     var tempProduct = new something.Products({
         sellerID: req.body.sellerID,
         productID: req.body.productID,
-        name: req.body.name,
+        name: req.body.name.toLowerCase(),
         description: req.body.description,
         startPrice: req.body.startPrice,
         maxBid: req.body.startPrice,

@@ -6,6 +6,7 @@ const initialState = {
     idToRedirect: "",
     oneProduct: {},
 }
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case "ALL_PRODUCTS_RECIVED":

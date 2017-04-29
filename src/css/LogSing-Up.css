@@ -1,50 +1,60 @@
-.log_sign_up{
+.log_sign_up {
     padding: 0;
     margin: 0;
     height: 100vh;
 }
-.log_sign_up .container{
+
+.log_sign_up .container {
     width: 100%;
 }
-.log_sign_up .left{
+
+.log_sign_up .left {
     height: 100vh;
-    background: #ccc;
+    background: linear-gradient(60deg, #DB4437 24.92%, #ccc 25%);
     display: flex;
     text-align: center;
-    align-items: center;    
+    align-items: center;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
 }
-.log_sign_up .left a{
+
+.log_sign_up .left a {
     margin-bottom: 120px;
     text-decoration: none;
     color: #333;
-    font-size: 100px!important;
+    padding: 0;
+    font-size: 70px!important;
 }
-.log_sign_up .left a:hover{
-    color: #F14946;
+
+.log_sign_up .left a:hover {
+    color: #DB4437;
     cursor: pointer;
 }
-.log_sign_up .left h4{
+
+.log_sign_up .left h4 {
     color: #333;
     font-size: 22px;
 }
-.log_sign_up .right{
+
+.log_sign_up .right {
     height: 100vh;
     background: #333;
     color: #fff;
 }
-.box{
-    margin-top: 80px;
+
+.box {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.box a{
+
+.box a {
     text-decoration: none;
     color: grey;
 }
-.log_sign_up .right input{
+
+.log_sign_up .right input {
     background: #333;
     border: none;
     border-bottom: 1px #ccc solid;
@@ -53,23 +63,27 @@
     width: 60%;
     outline: none;
 }
-.doubleInput{
+
+.doubleInput {
     text-align: center;
 }
-.smallInput{
-    margin:0 1%;
+
+.smallInput {
+    margin: 0 1%;
     width: 29%!important;
 }
-.log_sign_up .right button{
-    margin:30px 0;
+
+.log_sign_up .right button {
+    margin: 30px 0;
     border: none;
     border-radius: 25px;
     color: #fff;
-    background: #F14946;
+    background: #DB4437;
     padding: 18px 80px;
     font-size: 16px;
 }
-.log_sign_up .right button:hover{
+
+.log_sign_up .right button:hover {
     background: #ccc;
     color: #333;
 }

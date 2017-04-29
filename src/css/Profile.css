@@ -1,43 +1,74 @@
-.profile h1{
-    text-align: center;
-}
-.profile_info{
-    text-align: center;
+.profile_info {
+    width: 100%;
+    text-align: left;
     padding: 20px;
-    background: #EBEBEB;
-    border-radius: 5px;
+    background: linear-gradient(110deg, #DB4437 64.9%, #ccc 65%);
+    background-size: cover;
+    color: #333;
+    height: 40vh;
+    position: relative;
 }
-.profile_info button{
+
+.text {
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+}
+
+.profile_info button {
     color: #fff;
-    /*background: #F14946;*/
-    background: #333;    
+    background: #333;
     padding: 4px 10px;
     border: none;
     border-radius: 5px;
+    margin: 5px;
 }
-.add_btn{
-    margin-top: 20px;
-    padding: 8px 80px;
-    border-radius: 35px;
-    font-size: 60px;
-    background: #F14946;
-    color: #fff;
 
-}
-.profile_info button:hover{
-    background: #F14946;
-    /*color: #333;*/
-}
-.add_btn:hover{
+.add_btn {
+    color: #fff;
     background: #333;
+    padding: 4px 20px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+}
+
+.profile_info button:hover {
+    background: #ccc;
+    color: #333;
     cursor: pointer;
 }
-.message_cont{
+
+.add_btn:hover {
+    background: #DB4437;
+    color: #333;
+    cursor: pointer;
+}
+
+.message_cont {
     text-align: left;
 }
-.message_cont button{
+
+.message_cont button {
     background: #333;
 }
-.message_cont button:hover{
-    background: #F14946;
+
+.message_cont button:hover {
+    background: #DB4437;
+}
+
+.profile_bar {
+    text-align: center;
+    font-size: 30px;
+    border: 1px solid #ccc;
+    opacity: 0.6;
+    cursor: pointer
+}
+
+.active {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
 }

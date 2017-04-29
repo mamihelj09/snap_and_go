@@ -61,11 +61,11 @@ class SignupLogic extends Component {
                                     <input onChange={this.handleMailChange.bind(this)} type="text" placeholder="E-mail" /><br />
                                     <input onChange={this.handlePassChange.bind(this)} type="text" placeholder="Password" /><br />
                                     <div className="doubleInput">
-                                        <div className="hidden-xs">
+                                        <div className="hidden-xs hidden-sm">
                                             <input className="smallInput" onChange={this.handleFirstNameChange.bind(this)} type="text" placeholder="First name" />
                                             <input className="smallInput" onChange={this.handleLastNameChange.bind(this)} type="text" placeholder="Last name" />
                                         </div>
-                                        <div className="hidden-sm hidden-md hidden-lg">
+                                        <div className=" hidden-md hidden-lg">
                                             <input className="smallInput" onChange={this.handleFirstNameChange.bind(this)} type="text" placeholder="First" />
                                             <input className="smallInput" onChange={this.handleLastNameChange.bind(this)} type="text" placeholder="Last" />
                                         </div>

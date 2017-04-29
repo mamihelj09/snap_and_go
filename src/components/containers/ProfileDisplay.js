@@ -13,14 +13,14 @@ class ProfileDisplay extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="profile_info">
                 {this.props.user.redirectToHome ? <Redirect to="/" /> : <div>
                     {!this.props.user.loggedIn ? <Redirect to="/login" /> :
-                        <div>
-                            <h2>{this.props.user.user.fullName}</h2>
+                        <div className="text">
+                            <h1>{this.props.user.user.fullName}</h1>
                             <h4>{this.props.user.user.place}</h4>
                             <h5>{this.props.user.user.email}</h5>
-                            <button onClick={() => this.props.logout()}>LogOut</button> <br />
+                            <button onClick={() => this.props.logout()}>LogOut</button>
                             <Link to="/addproduct"><i className="material-icons add_btn">add</i></Link>
                         </div>}
                 </div>}
