@@ -40,20 +40,29 @@ class BiddingLogic extends Component {
     render() {
         var date = new Date(this.props.products.oneProduct.timeCreated)
         date.setMinutes(date.getMinutes() + 60)
-        console.log(date)
-
         return (
-            <div className="bid_display">
-                <h1>{this.props.products.oneProduct.name}</h1>
-                <h5>{this.props.products.oneProduct.description}</h5>
-                <h3>Item starts at: ${this.props.products.oneProduct.startPrice}</h3>
+            <div>
+                {this.props.products.oneProduct.name ?
+                    <h2>{this.props.products.oneProduct.name.charAt(0).toUpperCase() + this.props.products.oneProduct.name.slice(1)}</h2> : ""}
+                <p>{this.props.products.oneProduct.description}</p>
+                <h4>Item starts at: ${this.props.products.oneProduct.startPrice}</h4>
                 <hr />
                 <Timer start={date.getTime()} />
-                <h3>Current max bid: {this.props.products.oneProduct.maxBid}$
-                    {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h3>
-                <input type="number" onChange={this.handleChange.bind(this)} />
-                <button onClick={() => this.props.addBid(this.state.bid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>Bid</button>
-                <button onClick={() => this.props.addBid(++this.props.products.oneProduct.maxBid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>BidUp</button>
+                <h4>Current max bid: {this.props.products.oneProduct.maxBid}$
+                    {this.props.products.oneProduct.maxBidUser === localStorage.getItem("id") ? <span>Your bid</span> : ""}</h4>
+                <div className="row">
+                    <div className="col-sm-6">
+                        <div className="form-group">
+                            <input className="form-control input-sm" type="number" onChange={this.handleChange.bind(this)} />
+                        </div>
+                    </div>
+                    <div className="col-sm-3">
+                        <button className="btn btn-primary btn-block" onClick={() => this.props.addBid(this.state.bid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>Bid</button>
+                    </div>
+                    <div className="col-sm-3">
+                        <button className="btn btn-warning btn-block" onClick={() => this.props.addBid(++this.props.products.oneProduct.maxBid, this.props.products.oneProduct.productID, localStorage.getItem("id"), this.props.products.oneProduct.maxBid)}>BidUp</button>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -23,12 +23,15 @@ class Sreach extends React.Component {
 
   render() {
     return (
-      <div className="search" >
-        <h1>WHERE BEST PRICE'S ARE MOVING</h1>
-        <h3>Search for product's</h3> <br />
-        <div className="search_box" >
-          <input type="text" onChange={this.handleChange.bind(this)} onKeyUpCapture={this.handleKeyPress.bind(this)} />
-          <button onClick={() => this.props.fetchSearchedProducts(this.state.searchText)}><i className="material-icons">search</i></button>
+      <div className="jumbotron">
+        <h2>WHERE BEST PRICE'S ARE MOVING</h2>
+        <h5>Search for product's</h5>
+        <div className="form-group">
+          <input type="text" className="form-control"
+            onChange={this.handleChange.bind(this)}
+            onKeyUpCapture={this.handleKeyPress.bind(this)} />
+          <span className="form-control-feedback fui-search search"
+            onClick={() => this.props.fetchSearchedProducts(this.state.searchText)}></span>
         </div>
       </div>
     )

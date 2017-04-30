@@ -6,13 +6,9 @@ class ErrorPage extends Component {
     render() {
         return (
             <div className="error">
-                <div className="error_box">
-                    <h1 className="hidden-xs">Snap'n'NO Go!</h1>
-                    <h1 className="hidden-lg hidden-md hidden-sm">NO GO!</h1>
-                    <Link to="/">Go Home</Link>
-                    <h2>Auction over!</h2>
-                    <h3>Product doesn't exist anymore!</h3>
-                </div>
+                <h1>Snap'n'NO Go!</h1>
+                <h5>Sorry auction is over...More luck next time!</h5> <br/>
+                <Link to="/" className="btn btn-warning btn-wide">Go home</Link>
             </div>
         )
     }

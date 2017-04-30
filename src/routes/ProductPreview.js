@@ -21,13 +21,14 @@ class ProductPreview extends Component {
                 {this.props.products.redirectToError ? <Redirect to="/error" /> :
                     <div className="container">
                         {!this.props.products.redirectToProduct ? <Redirect to="/" /> :
-                            <div className="row">
-                                <br />
-                                <div className="col-sm-6 col-xs-12" style={{ marginBottom: "15px" }}>
-                                    <MainProductPreview />
-                                </div>
-                                <div className="col-sm-6 col-xs-12">
-                                    <BiddingLogic />
+                            <div className="product_preview">
+                                <div className="row">
+                                    <div className="col-sm-6 col-xs-12">
+                                        <MainProductPreview />
+                                    </div>
+                                    <div className="col-sm-6 col-xs-12">
+                                        <BiddingLogic />
+                                    </div>
                                 </div>
                             </div>
                         }

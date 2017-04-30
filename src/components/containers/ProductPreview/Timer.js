@@ -34,7 +34,7 @@ var Timer = React.createClass({
 
         return (
             <div>
-                <h5>Until the end of auction: <b>{min}:{sec}</b></h5>
+                <span>Until the end of auction: <b>{min}:{sec}</b></span>
             </div>
         );
     }

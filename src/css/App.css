@@ -1,52 +1,180 @@
 body {
-  margin: 0;
   padding: 0;
-  color: #333;
+  margin: 0;
 }
 
-.main {
-  color: #333;
+.root {
+  padding: 0;
+  margin: 0;
+}
+
+.home h1 {
+  text-align: center;
+}
+
+.profile .jumbotron {
+  text-align: left!important;
+}
+
+.nav .active:hover {
+  background: #2C3E50;
+}
+
+.nav_logo {
+  font-family: 'Lobster', cursive;
+}
+
+.navbar a:hover {
+  cursor: pointer;
+}
+
+.home .jumbotron {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.search:hover {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.item_list {
+  text-align: center;
+}
+
+.item {
+  border: 3px solid #ccc;
+}
+
+.item:hover {
+  cursor: pointer;
+  border: 3px solid #1abc9c;
+}
+
+.item img {
+  width: auto;
+  /*height: 100%;*/
+  max-height: 140px;
+}
+
+.selector {
+  text-align: center;
+  width: 100%;
+  background: #34495E;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+.selector span {
+  padding: 10px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.selector span:hover {
+  background: #16A085;
+}
+
+.selected {
+  background: #2C3E50;
+  color: #1abc9c;
+  cursor: pointer;
+}
+
+.right {
+  float: right;
+  margin: 0 5px;
+}
+
+.product_preview h2 {
+  margin: 0;
   text-align: center;
 }
 
 .error {
-  background: linear-gradient(130deg, #ccc 74.92%, #DB4437 75%);
-  color: #333;
   width: 100%;
   height: 100vh;
+  background: #1ABC9C;
+  text-align: center;
 }
 
 .error h1 {
-  border-bottom: 1px solid #333;
-  font-size: 100px;
-  font-family: 'Lobster', cursive;
+  margin: 0;
+  padding-top: 40px;
 }
 
-.error a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  background: #333;
-  border-radius: 25px;
-}
-
-.error a:hover {
-  color: #333;
-  background: #DB4437;
-  cursor: pointer;
-}
-
-.error_box {
+.login_main {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: #1ABC9C;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-#version {
-  font-size: 20px;
-  font-family: Arial;
+.login_screen {
+  background: #EDEFF1;
+  width: 50%;
+  border-radius: 6px;
 }
 
-.error_msg {
-  color: #DB4437;
+.login_icon {
+  text-align: center;
+  margin: 0 10px;
+  width: 150px;
+}
+
+.login_icon img {
+  width: 96px;
+}
+
+.login_icon a {
+  color: #34495e;
+  text-decoration: none;
+}
+
+.login_icon a:hover {
+  color: #F1C40F;
+}
+
+.small_img img {
+  height: 80px;
+  width: auto;
+  float: left;
+  margin: 10px;
+  border-radius: 6px;
+}
+
+.small_img img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.dropzone {
+  border-radius: 6px;
+  height: 40vh;
+  border: 2px solid #bdc3c7;
+  color: #bdc3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product_preview h2 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.product_preview p {
+  font-size: 16px;
+}
+
+.message_cont {
+  margin-bottom: 60px;
 }

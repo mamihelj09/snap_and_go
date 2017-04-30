@@ -20,7 +20,7 @@ class HomeProductList extends Component {
                         {this.props.products.allProducts.length > 0 ?
                             <div>
                                 {this.props.products.allProducts.map((item, i) => (
-                                    <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                    <div onClick={() => this.props.redirectToProduct(item.productID)} key={i} className="col-xs-12 col-sm-6 col-md-4">
                                         <ProductListItem
                                             img={item.imgsPath[0]}
                                             name={item.name}

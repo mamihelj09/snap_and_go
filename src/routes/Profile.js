@@ -8,18 +8,38 @@ import SimpleNav from "../components/presentationals/nav/SimpleNav"
 class Profile extends Component {
 
     handleClick() {
-        $("#products").toggleClass("active")
-        $("#messages").toggleClass("active")
-        $("#display_products").toggleClass("hidden")
-        $("#display_messages").toggleClass("hidden")
+        $("#products").toggleClass("hide")
+        $("#messages").toggleClass("hide")
+        $("#products_btn").toggleClass("selected")
+        $("#messages_btn").toggleClass("selected")
     }
 
     render() {
         return (
             <div className="profile">
                 <SimpleNav />
-                <ProfileDisplay />
                 <div className="container">
+                    <ProfileDisplay />
+                    <div className="item_list">
+                        <div className="selector">
+                            <span id="products_btn" onClick={() => this.handleClick()} className="selected">My products</span>
+                            <span id="messages_btn" onClick={() => this.handleClick()}>Messages</span>
+                        </div>
+                        <hr />
+                    </div>
+                    <div className="row">
+                        <div id="products" className="">
+                            <ProfileProductList />
+                        </div>
+                        <div id="messages" className="hide">
+                            <ProfileMessages />
+                        </div>
+                    </div>
+
+
+                </div>
+
+                {/*<div className="container">
                     <div className="row">
                         <div id="products" className="col-xs-6 profile_bar active" onClick={() => this.handleClick()}>Products</div>
                         <div id="messages" className="col-xs-6 profile_bar" onClick={() => this.handleClick()}>Messages</div>
@@ -32,7 +52,7 @@ class Profile extends Component {
                             <ProfileMessages />
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         )
     }

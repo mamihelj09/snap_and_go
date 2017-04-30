@@ -7,16 +7,16 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="home">
                 <HomeNav />
-                <div className="infoText ">
+                <div className="container">
                     <Search />
-                </div>
-                <div className="container main">
-                    <h1>Some Neat Products</h1>
-                    <hr />
-                    <div className="row">
-                        <HomeProductList />
+                    <div className="item_list">
+                        <h1>All items!</h1>
+                        <hr />
+                        <div className="row">
+                            <HomeProductList />
+                        </div>
                     </div>
                 </div>
             </div>

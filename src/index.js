@@ -13,17 +13,11 @@ import ProductPreview from "./routes/ProductPreview"
 import ErrorPage from "./routes/ErrorPage"
 
 import "./css/App.css"
-import "./css/Navbar.css"
-import "./css/ProductListItem.css"
-import "./css/ProductPreview.css"
-import "./css/Profile.css"
-import "./css/AddProduct.css"
-import "./css/LogSing-Up.css"
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div>
+      <div className="root">
         <Route exact path="/" component={Home} />
         <Route path="/login" component={LogIn} />
         <Route path="/singup" component={SignUp} />

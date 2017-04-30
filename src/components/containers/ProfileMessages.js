@@ -14,9 +14,9 @@ const ProfileMessages = React.createClass({
                         <div>
                             {this.props.user.user.messages.map((item, i) => (
                                 <div key={i}>
-                                    <span><b>{item.type}</b> SellerEmail: {item.mail} | </span>
-                                    <span>Product: {item.productName} {item.price}$</span>
-                                    <button onClick={() => this.props.removeMessage(item.productID, this.props.user.user.id, localStorage.getItem("token"))}>Remove</button>
+                                    <button className="btn btn-danger btn-xs" onClick={() => this.props.removeMessage(item.productID, this.props.user.user.id, localStorage.getItem("token"))}>Remove</button>
+                                    <span><b>{item.type}</b> SellerEmail: {item.mail} <strong>|</strong> </span>
+                                    <span>Product: {item.productName} <strong>{item.price}$</strong></span>
                                 </div>
                             ))}
                         </div>}

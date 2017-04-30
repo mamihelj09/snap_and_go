@@ -23,25 +23,33 @@ class LoginLogic extends Component {
 
     render() {
         return (
-            <div className="log_sign_up">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-6 col-xs-12 left">
-                            <Link to="/" className="navbar-brand navLogo">Snap'n'Go!<span id="version">ALPHA</span></Link>
-                            <h4>Another motivational text to motivate you to log on to my awesome site and earn some $$$</h4>
+            <div >
+                {this.props.user.loggedIn ? <Redirect to={"/profile/" + localStorage.getItem("id")} /> :
+                    <div className="login_main">
+                        <div className="login_icon hidden-xs">
+                            <img src="cam_ico.png" alt="" />
+                            <Link to="/" >
+                                <h4>Snap'n'Go!</h4>
+                            </Link>
                         </div>
-                        <div className="col-sm-6 col-xs-12 right">
-                            {this.props.user.loggedIn ? <Redirect to={"/profile/" + localStorage.getItem("id")} /> :
-                                <div className="box">
-                                    <h1>LogIn / <Link to="/singup">SignUp</Link></h1> <br />
-                                    <input type="text" placeholder="E-mail" onChange={this.handleMailChange.bind(this)} /> <br />
-                                    <input type="password" placeholder="Password" onChange={this.handlePassChange.bind(this)} /> <br />
-                                    <button onClick={() => this.props.login(this.state.mail, this.state.pass)}>Login</button>
-                                    {this.props.user.displayErrMsg ? <h3 className="error_msg"><strong>Failed to log in!</strong></h3> : ""}
-                                </div>}
+                        <div className="login_screen">
+                            <div className="login-form">
+                                <div className="form-group">
+                                    <input type="text" className="form-control login-field" placeholder="Enter Email" onChange={this.handleMailChange.bind(this)} />
+                                    <label className="login-field-icon fui-user hidden-xs"></label>
+                                </div>
+                                <div className="form-group">
+                                    <input type="password" className="form-control login-field" placeholder="Enter Password" onChange={this.handlePassChange.bind(this)} />
+                                    <label className="login-field-icon fui-lock hidden-xs"></label>
+                                </div>
+
+                                <button className="btn btn-primary btn-lg btn-block" onClick={() => this.props.login(this.state.mail, this.state.pass)}>Log in</button>
+
+                                {this.props.user.displayErrMsg ?
+                                    <h3 style={{ textAlign: "center", color: "#E74C3C" }}><strong>Failed to log in!</strong></h3> : ""}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
             </div>
         )
     }
