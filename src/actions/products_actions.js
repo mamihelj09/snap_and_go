@@ -1,6 +1,6 @@
 const io = require("socket.io-client")
-// const socket = io.connect("http://localhost:9000/")
-const socket = io.connect("http://192.168.5.167:9000")
+const socket = io.connect("http://localhost:9000/")
+// const socket = io.connect("http://192.168.5.167:9000")
 // const socket = io.connect("http://10.15.19.171:9000")
 
 export const fetchAllProducts = () => {

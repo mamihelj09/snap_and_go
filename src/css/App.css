@@ -56,7 +56,6 @@ body {
 
 .item img {
   width: auto;
-  /*height: 100%;*/
   max-height: 140px;
 }
 

@@ -27,7 +27,7 @@ Users = mongoose.model('Users', userSchema);
 Products = mongoose.model("Products", productSchema)
 
 mongoose.Promise = global.Promise;
-mongoose.connect(data.MONGO_URL, function (err) {
+mongoose.connect(data.MONGO_URL, function (err) { // data.MONGO_URL = path za bazu
     if (err) console.log(err);
     else console.log("Mongodb connected successfully!\n");
 });
